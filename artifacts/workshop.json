@@ -1,0 +1,192 @@
+{
+  "name": "Alder Works",
+  "shiftStart": 480,
+  "shiftEnd": 1080,
+  "now": 570,
+  "machines": [
+    {
+      "id": "CNC-1",
+      "name": "Precision mill",
+      "description": "Tight-tolerance work · 3-axis"
+    },
+    {
+      "id": "CNC-2",
+      "name": "General mill",
+      "description": "Flexible routing · 3-axis"
+    },
+    {
+      "id": "LASER",
+      "name": "Laser cutter",
+      "description": "Sheet components · dedicated"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "J101",
+      "name": "Precision hubs",
+      "customer": "Northline",
+      "quantity": 24,
+      "eligible": [
+        {
+          "machineId": "CNC-1",
+          "minutes": 90
+        }
+      ],
+      "release": 480,
+      "due": 600,
+      "priority": 2,
+      "original": {
+        "machineId": "CNC-1",
+        "start": 480
+      },
+      "locked": true
+    },
+    {
+      "id": "J102",
+      "name": "Pump collars",
+      "customer": "Fieldwork",
+      "quantity": 40,
+      "eligible": [
+        {
+          "machineId": "CNC-1",
+          "minutes": 90
+        },
+        {
+          "machineId": "CNC-2",
+          "minutes": 120
+        }
+      ],
+      "release": 570,
+      "due": 780,
+      "priority": 3,
+      "original": {
+        "machineId": "CNC-1",
+        "start": 570
+      }
+    },
+    {
+      "id": "J103",
+      "name": "Valve sleeves",
+      "customer": "Northline",
+      "quantity": 36,
+      "eligible": [
+        {
+          "machineId": "CNC-1",
+          "minutes": 75
+        },
+        {
+          "machineId": "CNC-2",
+          "minutes": 90
+        }
+      ],
+      "release": 570,
+      "due": 840,
+      "priority": 2,
+      "original": {
+        "machineId": "CNC-1",
+        "start": 660
+      }
+    },
+    {
+      "id": "J104",
+      "name": "Sensor mounts",
+      "customer": "Meridian",
+      "quantity": 18,
+      "eligible": [
+        {
+          "machineId": "CNC-1",
+          "minutes": 60
+        }
+      ],
+      "release": 570,
+      "due": 900,
+      "priority": 3,
+      "original": {
+        "machineId": "CNC-1",
+        "start": 735
+      }
+    },
+    {
+      "id": "J105",
+      "name": "Fixture plates",
+      "customer": "In-house",
+      "quantity": 12,
+      "eligible": [
+        {
+          "machineId": "CNC-2",
+          "minutes": 90
+        }
+      ],
+      "release": 480,
+      "due": 660,
+      "priority": 1,
+      "original": {
+        "machineId": "CNC-2",
+        "start": 480
+      },
+      "locked": true
+    },
+    {
+      "id": "J106",
+      "name": "Actuator bases",
+      "customer": "Meridian",
+      "quantity": 30,
+      "eligible": [
+        {
+          "machineId": "CNC-2",
+          "minutes": 120
+        },
+        {
+          "machineId": "CNC-1",
+          "minutes": 105
+        }
+      ],
+      "release": 570,
+      "due": 900,
+      "priority": 2,
+      "original": {
+        "machineId": "CNC-2",
+        "start": 570
+      }
+    },
+    {
+      "id": "J107",
+      "name": "Cable trays",
+      "customer": "Fieldwork",
+      "quantity": 60,
+      "eligible": [
+        {
+          "machineId": "LASER",
+          "minutes": 90
+        }
+      ],
+      "release": 480,
+      "due": 600,
+      "priority": 1,
+      "original": {
+        "machineId": "LASER",
+        "start": 480
+      },
+      "locked": true
+    },
+    {
+      "id": "J108",
+      "name": "Panel sets",
+      "customer": "Northline",
+      "quantity": 45,
+      "eligible": [
+        {
+          "machineId": "LASER",
+          "minutes": 90
+        }
+      ],
+      "release": 570,
+      "due": 810,
+      "priority": 1,
+      "original": {
+        "machineId": "LASER",
+        "start": 570
+      }
+    }
+  ]
+}

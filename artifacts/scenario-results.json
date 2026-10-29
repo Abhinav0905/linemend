@@ -1,0 +1,711 @@
+{
+  "source": "deterministic examples; no live model call",
+  "generatedAt": "2026-10-29T08:23:21.631Z",
+  "results": [
+    {
+      "id": "breakdown",
+      "note": "09:30 handover: CNC-1 is down from 09:30 until 13:00. The material for J106 will not arrive until 12:30. Keep completed jobs in their original slots. The delivery deadlines have not changed.",
+      "constraints": [
+        {
+          "id": "c1",
+          "kind": "machine_down",
+          "target": "CNC-1",
+          "start": 570,
+          "end": 780,
+          "quote": "CNC-1 is down from 09:30 until 13:00"
+        },
+        {
+          "id": "c2",
+          "kind": "material_delay",
+          "target": "J106",
+          "start": 0,
+          "end": 750,
+          "quote": "The material for J106 will not arrive until 12:30"
+        }
+      ],
+      "baseline": {
+        "placements": [
+          {
+            "jobId": "J101",
+            "machineId": "CNC-1",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J105",
+            "machineId": "CNC-2",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J107",
+            "machineId": "LASER",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J108",
+            "machineId": "LASER",
+            "start": 570,
+            "end": 660
+          },
+          {
+            "jobId": "J106",
+            "machineId": "CNC-2",
+            "start": 750,
+            "end": 870
+          },
+          {
+            "jobId": "J102",
+            "machineId": "CNC-1",
+            "start": 780,
+            "end": 870
+          },
+          {
+            "jobId": "J103",
+            "machineId": "CNC-1",
+            "start": 870,
+            "end": 945
+          },
+          {
+            "jobId": "J104",
+            "machineId": "CNC-1",
+            "start": 945,
+            "end": 1005
+          }
+        ],
+        "unscheduled": [],
+        "metrics": {
+          "onTime": 5,
+          "late": 3,
+          "tardiness": 795,
+          "moved": 4,
+          "machineChanges": 0,
+          "shift": 810,
+          "unscheduled": 0
+        },
+        "checks": [
+          {
+            "name": "Every job accounted for",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Machine compatibility & duration",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "No machine overlaps",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Downtime respected",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Material available",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Locked work unchanged",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Within the shift",
+            "passed": true,
+            "details": []
+          }
+        ],
+        "explored": 0,
+        "complete": true,
+        "elapsedMs": 12
+      },
+      "recovery": {
+        "placements": [
+          {
+            "jobId": "J101",
+            "machineId": "CNC-1",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J105",
+            "machineId": "CNC-2",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J107",
+            "machineId": "LASER",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J102",
+            "machineId": "CNC-2",
+            "start": 570,
+            "end": 690
+          },
+          {
+            "jobId": "J108",
+            "machineId": "LASER",
+            "start": 570,
+            "end": 660
+          },
+          {
+            "jobId": "J103",
+            "machineId": "CNC-2",
+            "start": 690,
+            "end": 780
+          },
+          {
+            "jobId": "J104",
+            "machineId": "CNC-1",
+            "start": 780,
+            "end": 840
+          },
+          {
+            "jobId": "J106",
+            "machineId": "CNC-2",
+            "start": 780,
+            "end": 900
+          }
+        ],
+        "unscheduled": [],
+        "metrics": {
+          "onTime": 8,
+          "late": 0,
+          "tardiness": 0,
+          "moved": 4,
+          "machineChanges": 2,
+          "shift": 285,
+          "unscheduled": 0
+        },
+        "checks": [
+          {
+            "name": "Every job accounted for",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Machine compatibility & duration",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "No machine overlaps",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Downtime respected",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Material available",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Locked work unchanged",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Within the shift",
+            "passed": true,
+            "details": []
+          }
+        ],
+        "explored": 443,
+        "complete": true,
+        "elapsedMs": 10
+      },
+      "bottlenecks": []
+    },
+    {
+      "id": "stock",
+      "note": "The stock for J102 is delayed until 14:00. J102 must still be finished by 13:00. All machines are available. Do not change completed work.",
+      "constraints": [
+        {
+          "id": "c1",
+          "kind": "material_delay",
+          "target": "J102",
+          "start": 0,
+          "end": 840,
+          "quote": "The stock for J102 is delayed until 14:00"
+        },
+        {
+          "id": "c2",
+          "kind": "deadline",
+          "target": "J102",
+          "start": 0,
+          "end": 780,
+          "quote": "J102 must still be finished by 13:00"
+        }
+      ],
+      "baseline": {
+        "placements": [
+          {
+            "jobId": "J101",
+            "machineId": "CNC-1",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J105",
+            "machineId": "CNC-2",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J107",
+            "machineId": "LASER",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J106",
+            "machineId": "CNC-2",
+            "start": 570,
+            "end": 690
+          },
+          {
+            "jobId": "J108",
+            "machineId": "LASER",
+            "start": 570,
+            "end": 660
+          },
+          {
+            "jobId": "J102",
+            "machineId": "CNC-1",
+            "start": 840,
+            "end": 930
+          },
+          {
+            "jobId": "J103",
+            "machineId": "CNC-1",
+            "start": 930,
+            "end": 1005
+          },
+          {
+            "jobId": "J104",
+            "machineId": "CNC-1",
+            "start": 1005,
+            "end": 1065
+          }
+        ],
+        "unscheduled": [],
+        "metrics": {
+          "onTime": 5,
+          "late": 3,
+          "tardiness": 1275,
+          "moved": 3,
+          "machineChanges": 0,
+          "shift": 810,
+          "unscheduled": 0
+        },
+        "checks": [
+          {
+            "name": "Every job accounted for",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Machine compatibility & duration",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "No machine overlaps",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Downtime respected",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Material available",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Locked work unchanged",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Within the shift",
+            "passed": true,
+            "details": []
+          }
+        ],
+        "explored": 0,
+        "complete": true,
+        "elapsedMs": 0
+      },
+      "recovery": {
+        "placements": [
+          {
+            "jobId": "J101",
+            "machineId": "CNC-1",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J105",
+            "machineId": "CNC-2",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J107",
+            "machineId": "LASER",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J106",
+            "machineId": "CNC-2",
+            "start": 570,
+            "end": 690
+          },
+          {
+            "jobId": "J108",
+            "machineId": "LASER",
+            "start": 570,
+            "end": 660
+          },
+          {
+            "jobId": "J103",
+            "machineId": "CNC-1",
+            "start": 660,
+            "end": 735
+          },
+          {
+            "jobId": "J104",
+            "machineId": "CNC-1",
+            "start": 735,
+            "end": 795
+          },
+          {
+            "jobId": "J102",
+            "machineId": "CNC-1",
+            "start": 840,
+            "end": 930
+          }
+        ],
+        "unscheduled": [],
+        "metrics": {
+          "onTime": 7,
+          "late": 1,
+          "tardiness": 450,
+          "moved": 1,
+          "machineChanges": 0,
+          "shift": 270,
+          "unscheduled": 0
+        },
+        "checks": [
+          {
+            "name": "Every job accounted for",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Machine compatibility & duration",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "No machine overlaps",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Downtime respected",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Material available",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Locked work unchanged",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Within the shift",
+            "passed": true,
+            "details": []
+          }
+        ],
+        "explored": 2068,
+        "complete": true,
+        "elapsedMs": 5
+      },
+      "bottlenecks": [
+        {
+          "jobId": "J102",
+          "earliestFinish": 930,
+          "due": 780,
+          "gap": 150,
+          "reason": "Material arrives after the deadline."
+        }
+      ]
+    },
+    {
+      "id": "promise",
+      "note": "CNC-1 is unavailable from 09:30 until 13:00. J104 now has a firm deadline of 13:30. The material for J106 arrives at 12:30. Completed work stays locked.",
+      "constraints": [
+        {
+          "id": "c1",
+          "kind": "machine_down",
+          "target": "CNC-1",
+          "start": 570,
+          "end": 780,
+          "quote": "CNC-1 is unavailable from 09:30 until 13:00"
+        },
+        {
+          "id": "c2",
+          "kind": "deadline",
+          "target": "J104",
+          "start": 0,
+          "end": 810,
+          "quote": "J104 now has a firm deadline of 13:30"
+        },
+        {
+          "id": "c3",
+          "kind": "material_delay",
+          "target": "J106",
+          "start": 0,
+          "end": 750,
+          "quote": "The material for J106 arrives at 12:30"
+        }
+      ],
+      "baseline": {
+        "placements": [
+          {
+            "jobId": "J101",
+            "machineId": "CNC-1",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J105",
+            "machineId": "CNC-2",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J107",
+            "machineId": "LASER",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J108",
+            "machineId": "LASER",
+            "start": 570,
+            "end": 660
+          },
+          {
+            "jobId": "J106",
+            "machineId": "CNC-2",
+            "start": 750,
+            "end": 870
+          },
+          {
+            "jobId": "J102",
+            "machineId": "CNC-1",
+            "start": 780,
+            "end": 870
+          },
+          {
+            "jobId": "J103",
+            "machineId": "CNC-1",
+            "start": 870,
+            "end": 945
+          },
+          {
+            "jobId": "J104",
+            "machineId": "CNC-1",
+            "start": 945,
+            "end": 1005
+          }
+        ],
+        "unscheduled": [],
+        "metrics": {
+          "onTime": 5,
+          "late": 3,
+          "tardiness": 1065,
+          "moved": 4,
+          "machineChanges": 0,
+          "shift": 810,
+          "unscheduled": 0
+        },
+        "checks": [
+          {
+            "name": "Every job accounted for",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Machine compatibility & duration",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "No machine overlaps",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Downtime respected",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Material available",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Locked work unchanged",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Within the shift",
+            "passed": true,
+            "details": []
+          }
+        ],
+        "explored": 0,
+        "complete": true,
+        "elapsedMs": 0
+      },
+      "recovery": {
+        "placements": [
+          {
+            "jobId": "J101",
+            "machineId": "CNC-1",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J105",
+            "machineId": "CNC-2",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J107",
+            "machineId": "LASER",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J102",
+            "machineId": "CNC-2",
+            "start": 570,
+            "end": 690
+          },
+          {
+            "jobId": "J108",
+            "machineId": "LASER",
+            "start": 570,
+            "end": 660
+          },
+          {
+            "jobId": "J103",
+            "machineId": "CNC-2",
+            "start": 690,
+            "end": 780
+          },
+          {
+            "jobId": "J104",
+            "machineId": "CNC-1",
+            "start": 780,
+            "end": 840
+          },
+          {
+            "jobId": "J106",
+            "machineId": "CNC-2",
+            "start": 780,
+            "end": 900
+          }
+        ],
+        "unscheduled": [],
+        "metrics": {
+          "onTime": 7,
+          "late": 1,
+          "tardiness": 90,
+          "moved": 4,
+          "machineChanges": 2,
+          "shift": 285,
+          "unscheduled": 0
+        },
+        "checks": [
+          {
+            "name": "Every job accounted for",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Machine compatibility & duration",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "No machine overlaps",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Downtime respected",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Material available",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Locked work unchanged",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Within the shift",
+            "passed": true,
+            "details": []
+          }
+        ],
+        "explored": 928,
+        "complete": true,
+        "elapsedMs": 2
+      },
+      "bottlenecks": [
+        {
+          "jobId": "J104",
+          "earliestFinish": 840,
+          "due": 810,
+          "gap": 30,
+          "reason": "Its only compatible machine is unavailable too long."
+        }
+      ]
+    }
+  ]
+}
