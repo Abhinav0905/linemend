@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "sqlite",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1793288105927,
+      "tag": "0000_model_budget",
+      "breakpoints": true
+    }
+  ]
 }

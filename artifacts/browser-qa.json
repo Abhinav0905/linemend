@@ -1,0 +1,71 @@
+{
+  "verifiedAt": "2026-10-29T15:48:01.584261+00:00",
+  "browser": "Safari on macOS via native computer control",
+  "mode": "guided example; no live model call",
+  "checks": [
+    {
+      "name": "breakdown",
+      "recoveredOnTime": 8,
+      "oldQueueOnTime": 5
+    },
+    {
+      "name": "urgent",
+      "recoveredOnTime": 7,
+      "minimumLatenessMinutes": 30
+    },
+    {
+      "name": "late-material",
+      "recoveredOnTime": 7,
+      "minimumLatenessMinutes": 150
+    },
+    {
+      "name": "urgent what-if repair at 14:00",
+      "minimumLatenessMinutes": 90
+    },
+    {
+      "name": "CSV export",
+      "rows": 8,
+      "lateJobs": [
+        "J104"
+      ]
+    },
+    {
+      "name": "JSON export",
+      "originalRecoveryMinute": 780,
+      "reviewedRecoveryMinute": 840,
+      "manuallyModified": true,
+      "allChecksPassed": true
+    },
+    {
+      "name": "valid workshop import",
+      "passed": true
+    },
+    {
+      "name": "wrong JSON schema rejected",
+      "passed": true
+    },
+    {
+      "name": "missing-key setup dialog and Escape dismissal",
+      "passed": true
+    },
+    {
+      "name": "Orders and How it works tabs",
+      "passed": true
+    },
+    {
+      "name": "desktop and narrow window at increased zoom",
+      "passed": true,
+      "note": "Responsive breakpoints inspected; not a physical mobile-device test"
+    }
+  ],
+  "fixes": [
+    "Old-queue title and counts now reflect its own schedule",
+    "Recovery brings the result into view",
+    "Invalid-import error names fields and points to the template"
+  ],
+  "pending": [
+    "Live Nebius inference",
+    "Public hosted path after final deployment",
+    "Video recording"
+  ]
+}

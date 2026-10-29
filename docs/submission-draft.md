@@ -36,7 +36,7 @@ An impossible deadline is a useful output. We calculate a lower bound for each j
 
 ## What we verified
 
-Eighteen automated tests pass, including sixty generated disruption cases. They cover physical constraints, locked-work conflicts, missing jobs, incompatible routes, invalid imports and fabricated model evidence. Type checking and the production build pass. Provider tests currently use mocked responses; live verification and browser QA remain pending.
+Twenty-one automated tests pass, including sixty generated disruption cases. They cover physical constraints, locked-work conflicts, missing jobs, incompatible routes, invalid imports and fabricated model evidence. Type checking and the production build pass. Provider unit tests use mocked responses; live verification is pending. Browser checks passed for all three examples, comparison views, repair-time edits, valid and invalid imports, exports and responsive layouts. A shared database limits the hosted demo to 100 model requests per day and 300 total.
 
 ## What's next
 

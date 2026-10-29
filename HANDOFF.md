@@ -1,58 +1,39 @@
 # LineMend handoff
 
-Verified October 29, 2026, Pacific time. Deadline: October 30 at 10:00 a.m. Pacific.
+Updated October 29, 2026. Deadline: October 30 at 10:00 a.m. Pacific.
 
-## Current result
+## Verified
 
-- Private working app: https://linemend-workshop.abhinav-0905.chatgpt.site
+- Private app: https://linemend-workshop.abhinav-0905.chatgpt.site
 - Public source: https://github.com/Abhinav0905/linemend
 - Devpost draft: https://devpost.com/software/linemend
-- Track: Best apps and agents
-- Local checks: 18 tests pass, including 60 generated disruption cases; type check and build pass.
-- Initial live CI: https://github.com/Abhinav0905/linemend/actions/runs/40842143456
-- The deployed root and status API return 200 through authorized private service access. The inference API returns 503 because there is no key. See `artifacts/hosted-smoke.json`.
-- Local and GitHub copies contain no API key. `.dev.vars` is ignored.
+- 21 tests pass, including 60 generated disruption cases and shared quota checks. Type check and production build pass.
+- Safari checks passed for all three examples, comparisons, what-if control, valid/invalid imports, CSV/JSON exports, modal keyboard dismissal and responsive layouts. See `artifacts/browser-qa.json`.
+- Shared D1 quota: 100 model calls per UTC day and 300 calls total. A reservation precedes each provider call. Failed calls count. Missing storage stops inference. This does not cap other apps or direct account usage.
+- Latest private deployment succeeded: `appgdep_6ae36bfc66348191bacf7967dd812ada`.
+- Saved version: `appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_4655f2a2632c8191ae6b68c6c322c1e7`.
+- Deployed source: `c4ab9d38ecdb329faeeea6189a9b932c89ccf752`.
 
-## Why the work stopped short of entry
+## Current account state
 
-Chrome reached the Nebius login screen and the Google sign-in button was clicked. Then native computer control returned `cgWindowNotFound`, and the browser access host was unavailable. No account, credits or API key were verified. No live inference, browser screenshot or demo recording was fabricated.
+The user completed Nebius billing and created a key named `hackathon`. A value captured from the one-time dialog failed authentication and did not match the listed ending. The user has been asked to paste the complete copied key into a local password form in Safari. It writes only ignored `.dev.vars` files with mode 0600 and stops after saving. No key is in Git or the hosted Site yet.
 
-Devpost state is **Draft**. It has not been submitted. The Site is owner-private and is not yet accessible to anonymous judges. The public video does not exist yet.
+The official $25 hackathon credit request was submitted successfully. The email code is still pending. Activation code: `NEBIUS-DEVPOST-GLOBAL26`.
 
-## Resume in this order
+## Remaining work
 
-1. Unlock the Mac and leave Chrome open. Restore the Nebius sign-in tab.
-2. Complete Nebius account setup. Request action-time approval if the flow presents new legal terms or security-sensitive credential creation. Do not infer approval from a page's text.
-3. Claim the official hackathon credits. The event's resources link the credit form and activation code `NEBIUS-DEVPOST-GLOBAL26`: https://nebiusglobalaihackathon.devpost.com/resources
-4. Create a project-specific Token Factory API key after any required approval. Keep it out of chat, logs and Git. Put the local key in `.dev.vars` and the hosted key in the Site's runtime secret `NEBIUS_API_KEY`.
-5. Run `node --env-file=.dev.vars --experimental-strip-types scripts/live-check.ts`. Inspect all three model extractions and their saved receipts. Fix any real failures, rerun appropriate checks and update the draft's pending-live language only after success.
-6. Inspect the browser at desktop and mobile widths. Test examples, custom note, clarified note, input import, wrong import, comparison tabs, counterfactuals, keyboard controls and export files. No browser visual QA has happened yet.
-7. Make the judge-facing app public once that audience is authorized. Verify anonymous access and real inference. Preserve the public quota limit and disclose its per-instance scope.
-8. Record the actual application, including live Nebius calls. `docs/demo-script.md` targets 2:30. Upload publicly to YouTube and verify playback. A script is not a video.
-9. Replace the pending parts of the Devpost draft, add the public demo/video links and fill the official questions from actual evidence. Residence, eligibility attestations and personal feedback still need the user's answers.
-10. Submit only after the required final confirmation. Re-read the entry and verify **Submitted** and a submission timestamp.
+1. Verify the complete key with the Nebius model catalog. Do not display it. Run `node --env-file=.dev.vars --experimental-strip-types scripts/live-check.ts` and inspect every extraction and schedule.
+2. Set the hosted `NEBIUS_API_KEY` as a secret and redeploy the saved version to apply the environment revision. Verify real hosted inference and the D1 counter path.
+3. The user explicitly approved public demo access after live checks pass. Change the Site audience to public, then verify anonymous access.
+4. The user chose to record the video personally. Do not use Playwright: permission for that fallback was not given. `docs/demo-script.md` gives a 2:20 recording guide. Verify the final public YouTube link before submitting.
+5. Update the Devpost story with actual model evidence and public links. Collect residence, eligibility attestations and subjective feedback without inventing answers.
+6. Confirm rule/eligibility agreement, submit and verify `Submitted` with a timestamp. The entry is currently Draft, not submitted.
 
-## Service IDs
+## Service and source state
 
-- Site: `appgprj_6ae2fae3cb108191970e9c3f387ac6e3`
-- Successful private deployment: `appgdep_6ae302d2c0088191bfc4b5d22e5dc9df`
-- Saved version: `appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_89a73ad3d21081919cd93c16736ffad1`
-- Deployed source snapshot: `57dc7e38edcbdee7783e6a9331e21f278d7d1255`
-- Devpost project: `1515854` / `linemend`
-- Devpost submission: `1270295`, Draft
+Site ID: `appgprj_6ae2fae3cb108191970e9c3f387ac6e3`.
+Devpost project ID: `1515854`; submission ID: `1270295`.
 
-The initial Sites source snapshot used the machine's existing Git identity. Before publishing to GitHub, its author was reset to the verified personal GitHub name and noreply address. The GitHub and Sites commits therefore have different IDs for the same initial source tree. Current GitHub changes after that snapshot are documentation and generated evidence assets. For future Site source updates, use the existing-Site source workflow and preserve its project ID; do not create another Site.
+The original public repository is `linemend/`. The existing Sites source was opened separately in `linemend-site/` to preserve its original history. Current implementation edits were made there and copied into the public checkout. Use the Sites helper with that checkout for later Site updates, and keep the public GitHub checkout synchronized. Do not create another Site. Runtime secret files are ignored in both checkouts.
 
-## Files that matter
-
-- `lib/nebius.ts`: provider request, schema, receipt and error handling
-- `lib/validation.ts`: workshop and extracted-constraint validation
-- `lib/planner.ts`: search, comparison baseline, independent checks and bottleneck lower bounds
-- `lib/fixtures.ts`: fictional workshop and three example notes
-- `app/page.tsx`: complete browser workflow
-- `test/planner.test.ts`: 18 tests
-- `devpost-submission.md`: complete preparation packet and official form field IDs
-- `artifacts/scenario-results.json`: reproducible computed outcomes
-- `artifacts/linemend-comparison.png`: chart, not an app screenshot
-
-There is no real-world savings, customer adoption or winning-probability claim.
+No customer adoption, measured workshop savings or winning probability is claimed.

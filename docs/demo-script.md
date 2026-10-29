@@ -1,31 +1,28 @@
-# LineMend demo plan, target 2 minutes 30 seconds
+# LineMend recording guide
 
-Record actual app interactions after live Nebius access and visual QA. Do not substitute the example path while describing it as live inference.
+Target: 2 minutes 20 seconds. The event accepts a public YouTube video under 3 minutes.
 
-0:00-0:15 — The problem
+Use the hosted app after its status says **Nebius connected**. Keep the window wide enough to show the handover beside the schedule. Close unrelated tabs and notifications before recording. This guide is a script, not proof of a recorded or published video.
 
-"A machine fails at 9:30. The workshop still has eight orders to finish. Pushing the old queue back makes three orders late. LineMend helps the supervisor find another plan."
+| Time | Click / show | Say |
+| --- | --- | --- |
+| 0:00-0:15 | Recovery board, Machine breakdown | "A machine fails at 9:30. Eight orders still have deadlines. LineMend helps a workshop supervisor find a workable plan for the rest of the shift." |
+| 0:15-0:40 | Interpret with Nemotron. Show returned quotes. | "NVIDIA Nemotron runs on Nebius Token Factory. It reads the handover and extracts machine downtime and material delays. I check those constraints before the scheduler uses them." |
+| 0:40-1:05 | Confirm & recover. Then Keep the old queue. Then Recovery. | "Keeping the old queue leaves three orders late. Trying alternate machines and job sequences gets all eight finished on time in this fictional example. Completed work stays locked." |
+| 1:05-1:20 | Click J102; show eligible routes. Scroll to Check the result. | "The alternate mill is slower, but available. A separate validator checks machine compatibility, overlaps, downtime, materials and locked work." |
+| 1:20-1:50 | Select Urgent order. Interpret live. Confirm & recover. Show the bottleneck card. | "Now the customer needs J104 by 1:30. Its only compatible machine returns at 1:00, and the job takes an hour. The earliest finish is 2:00. LineMend tells the supervisor that this promise needs a conversation." |
+| 1:50-2:05 | Explore; move repair time later. | "I can change the repair estimate and see the effect. The export preserves both the original interpretation and my adjustment." |
+| 2:05-2:20 | Export plan; show Schedule CSV and Full evidence report. | "The output is a proposal with its evidence. This prototype covers one shift and one operation per order. The examples are fictional. The next test is an anonymized schedule from a real workshop." |
 
-Show the original schedule and job routes.
+Do not describe **Or review the example constraints** as a live model call. If the model asks a clarification, show it and correct the note. Do not replace a failed call with an example while describing the result as live.
 
-0:15-0:45 — Read and review
+Recording checklist:
 
-Paste the breakdown handover note. Click Interpret with Nemotron. Show the actual returned model receipt and quotes. Explain: "NVIDIA Nemotron runs on Nebius Token Factory. It turns the handover into constraints. I can inspect or correct each one before scheduling."
+- The opening, live response, comparison and late-order result are readable.
+- No API key, billing details or unrelated private tabs appear.
+- Audio is clear and the final video is less than 3 minutes.
+- Upload to YouTube with public playback enabled, then open the watch link signed out to check it.
 
-0:45-1:15 — Recover
+App: https://linemend-workshop.abhinav-0905.chatgpt.site
 
-Click Confirm & recover. Show 8/8 on time. Compare with Keep the old queue at 5/8. Click J102 to show the slower alternate route on CNC-2. Point out completed work staying locked and the separate validation results.
-
-1:15-1:45 — Test a harder case
-
-Use Urgent order, interpret live, then recover. Show J104's earliest possible finish of 14:00 against a 13:30 deadline. "This is not a plan that promises everything. Its only compatible machine is unavailable until 13:00, and the job takes 60 minutes. It is at least 30 minutes late."
-
-1:45-2:10 — What if
-
-Open Explore. Change the machine return time. Show the schedule and counts recalculating. Explain that this changes a supervisor assumption, while the original interpretation stays in the report.
-
-2:10-2:30 — Export and limits
-
-Download the CSV and full JSON evidence report. "The prototype covers a single shift and one operation per order. These are fictional examples. The next test is a real workshop's anonymized handover and schedule."
-
-End on the app URL and public code repository. No projected savings, customer testimonials or unverified adoption figures.
+Source: https://github.com/Abhinav0905/linemend

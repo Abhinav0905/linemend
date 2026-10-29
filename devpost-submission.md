@@ -52,7 +52,7 @@ Browser note and workshop → server-side Nemotron request → schema/entity/quo
 
 Pending public access. Current owner-private preview: https://linemend-workshop.abhinav-0905.chatgpt.site
 
-The hosted root and status endpoint return HTTP 200 using authorized private service access. Missing-key inference returns HTTP 503 with an explicit setup message. These HTTP checks do not replace browser visual QA.
+The hosted root and status endpoint return HTTP 200 using authorized private service access. Missing-key inference returns HTTP 503 with an explicit setup message. Local browser QA also passed; see `artifacts/browser-qa.json`.
 
 ## Public Repository Link
 
@@ -62,7 +62,7 @@ MIT license detected by GitHub. Initial CI succeeded: https://github.com/Abhinav
 
 ## Demo Video
 
-Pending recording and public YouTube upload. The exact 2:30 outline is in `docs/demo-script.md`. Record actual live inference and browser interactions after setup. Do not describe example constraints as a live model response.
+Pending recording and public YouTube upload. The exact 2:20 outline is in `docs/demo-script.md`. Record actual live inference and browser interactions after setup. Do not describe example constraints as a live model response.
 
 ## Screenshot Shot List
 
@@ -78,13 +78,13 @@ Pending recording and public YouTube upload. The exact 2:30 outline is in `docs/
 
 The Devpost project exists in **Draft** state, project ID 1515854, submission ID 1270295. It is not submitted. The full story draft is in `docs/submission-draft.md` and has also been saved to Devpost with its current limitations.
 
-Completed: local app, production build, 18 tests including 60 generated cases, type checking, public MIT repository, GitHub Actions, private deployment, authenticated hosted HTTP checks, draft story, video outline and calculated comparison graphic.
+Completed: local app, production build, 21 tests including 60 generated cases, type checking, public MIT repository, GitHub Actions, private deployment, authenticated hosted HTTP checks, draft story, video outline and calculated comparison graphic.
 
-Outstanding: Nebius sign-in/key/credits, successful runtime NVIDIA model calls, visual browser QA, public judge access, actual demo recording, public YouTube upload, provider-experience answers and final entry confirmation.
+Outstanding: complete API key and credits, successful runtime NVIDIA model calls, public judge access after those calls pass, actual demo recording by the user, public YouTube upload, provider-experience answers and final entry confirmation.
 
 ## Known Limitations
 
-One shift, one operation per job, fixed setup allowances. No shared operator constraints, multi-stage routing, machine dispatch or real-workshop evaluation. Bounded candidate search, no global optimality claim. Per-instance request limits are not a durable account-wide cost cap.
+One shift, one operation per job, fixed setup allowances. No shared operator constraints, multi-stage routing, machine dispatch or real-workshop evaluation. Bounded candidate search, no global optimality claim. A shared D1 budget caps this demo at 100 model calls per day and 300 total. It does not cap direct API usage or other apps on the account.
 
 ## TODO Official Form Fields
 

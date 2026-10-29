@@ -20,9 +20,9 @@
   },
   "build": {
     "local_verified": true,
-    "tests": 18,
+    "tests": 21,
     "generated_disruption_cases": 60,
-    "browser_verified": false,
+    "browser_verified": true,
     "live_nebius_verified": false
   },
   "hosting": {
@@ -30,13 +30,18 @@
     "url": "https://linemend-workshop.abhinav-0905.chatgpt.site",
     "audience": "owner-private",
     "deployment_status": "succeeded",
-    "source_sha": "57dc7e38edcbdee7783e6a9331e21f278d7d1255"
+    "source_sha": "c4ab9d38ecdb329faeeea6189a9b932c89ccf752",
+    "deployment_id": "appgdep_6ae36bfc66348191bacf7967dd812ada",
+    "version_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_4655f2a2632c8191ae6b68c6c322c1e7",
+    "public_access_authorized": true
   },
   "repository": "https://github.com/Abhinav0905/linemend",
   "blockers": [
-    "Browser access host unavailable and native Chrome returns cgWindowNotFound",
-    "Nebius account/key/credits pending",
-    "Public demo access and actual demo video pending",
-    "Eligibility and form personal answers require user confirmation"
-  ]
+    "Complete Nebius API key: captured value failed authentication; user is replacing it through local-only setup form",
+    "Hackathon credit code requested; email pending",
+    "Successful live NVIDIA model calls and hosted secret setup",
+    "User will record the demo video; public YouTube link pending",
+    "Eligibility and personal form answers require user confirmation"
+  ],
+  "recording_owner": "user"
 }

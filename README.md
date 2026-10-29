@@ -11,10 +11,10 @@ Built for the **Nebius x NVIDIA Global AI Hackathon**, Best Apps and Agents trac
 ## Current status
 
 - Working local application and production build. [Owner-private hosted preview](https://linemend-workshop.abhinav-0905.chatgpt.site), with successful authenticated HTTP checks.
-- 18 automated tests pass, including 60 generated disruption cases.
+- 21 automated tests pass, including 60 generated disruption cases.
 - Three fictional workshop examples work without credentials. They are marked **Example constraints - no model call**.
 - The real Nebius adapter is implemented. **Live inference has not yet been verified; account setup and an API key are pending.** A missing or rejected key produces an error. There is no fake model fallback.
-- Browser visual QA is pending because the computer-control surface became unavailable.
+- Browser QA passed for all three examples, schedule comparisons, repair-time edits, valid/invalid imports and CSV/JSON exports. Desktop and narrow responsive layouts were inspected in Safari.
 - A [Devpost draft](https://devpost.com/software/linemend) is saved. It is not submitted, and the public demo video is not complete.
 
 ![Calculated example comparison, not an app screenshot](artifacts/linemend-comparison.png)
@@ -43,6 +43,15 @@ NEBIUS_MODEL=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B
 ```
 
 The browser never receives the API key. Do not commit `.dev.vars`. The hosted application needs the same values in its server environment.
+
+Live requests also need the local D1 quota table. Build once, then apply the migration to the local preview database:
+
+```sh
+npm run build
+node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_model_budget.sql
+```
+
+Run the migration once per local database. Sites applies it to the hosted database during deployment. Only aggregate request counts are stored; workshop notes are not.
 
 ## NVIDIA and Nebius integration
 
@@ -102,7 +111,7 @@ npm run typecheck
 npm run build
 ```
 
-The 18 tests cover examples, impossible schedules, frozen-work conflicts, overlap and route rejection, import validation, quote/time evidence, model errors and 60 generated disruptions. The provider tests are mocked. Live smoke testing is a separate step with `node --env-file=.dev.vars --experimental-strip-types scripts/live-check.ts`.
+The 21 tests cover examples, impossible schedules, frozen-work conflicts, overlap and route rejection, import validation, quote/time evidence, model errors and 60 generated disruptions. The provider tests are mocked. Live smoke testing is a separate step with `node --env-file=.dev.vars --experimental-strip-types scripts/live-check.ts`.
 
 The app uses React, TypeScript and Vinext. The Sites build packages it as a Cloudflare Worker with a client bundle. A GitHub Actions workflow runs tests, type checking and build on push.
 
@@ -110,6 +119,6 @@ The app uses React, TypeScript and Vinext. The Sites build packages it as a Clou
 
 This is a one-shift, single-operation prototype. Durations include fixed setup allowances. Shared operators, multi-stage production, sequence-dependent setup, overtime, maintenance certification and multi-day planning are outside the model. Machine compatibility comes from the input; the app does not certify it.
 
-Quote checks establish textual grounding, not correct interpretation of every sentence. Human review remains necessary. The API has bounded input size, per-visitor request limits and an instance-level daily limit. Those counters are in memory and are not a durable account-wide spending cap. A public deployment needs a shared limiter and persistent quota controls before real commercial use.
+Quote checks establish textual grounding, not correct interpretation of every sentence. Human review remains necessary. The API has bounded input size, per-visitor throttling and a shared D1 request budget of 100 calls per UTC day and 300 calls total. Each request reserves a slot atomically before contacting Nebius; failed provider calls count too. Deploys do not reset the total. Missing quota storage stops inference. This caps requests through this demo, not usage from other apps or direct use of the same API key.
 
 Live requests send the note and workshop to Nebius. The app does not persist inputs on its server. This prototype is not connected to a real production system.
