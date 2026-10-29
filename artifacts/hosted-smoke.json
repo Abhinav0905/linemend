@@ -1,0 +1,26 @@
+{
+  "audience": "owner-private",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "contains_app_title": true
+    },
+    {
+      "path": "/api/status",
+      "status": 200,
+      "response": {
+        "configured": false,
+        "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+        "provider": "Nebius Token Factory"
+      }
+    },
+    {
+      "path": "/api/interpret",
+      "status": 503,
+      "response": {
+        "error": "Nebius is not connected yet. Add NEBIUS_API_KEY to the server environment. The guided examples still work, with no model call."
+      }
+    }
+  ]
+}

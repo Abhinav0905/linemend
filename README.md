@@ -10,12 +10,16 @@ Built for the **Nebius x NVIDIA Global AI Hackathon**, Best Apps and Agents trac
 
 ## Current status
 
-- Working local application and production build.
+- Working local application and production build. [Owner-private hosted preview](https://linemend-workshop.abhinav-0905.chatgpt.site), with successful authenticated HTTP checks.
 - 18 automated tests pass, including 60 generated disruption cases.
 - Three fictional workshop examples work without credentials. They are marked **Example constraints - no model call**.
 - The real Nebius adapter is implemented. **Live inference has not yet been verified; account setup and an API key are pending.** A missing or rejected key produces an error. There is no fake model fallback.
 - Browser visual QA is pending because the computer-control surface became unavailable.
-- Hackathon submission and public demo video are not complete.
+- A [Devpost draft](https://devpost.com/software/linemend) is saved. It is not submitted, and the public demo video is not complete.
+
+![Calculated example comparison, not an app screenshot](artifacts/linemend-comparison.png)
+
+See [HANDOFF.md](HANDOFF.md) for the exact resume sequence and verified service IDs.
 
 ## Run locally
 

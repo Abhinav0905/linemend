@@ -1,0 +1,42 @@
+{
+  "hackathon": {
+    "slug": "nebiusglobalaihackathon",
+    "name": "Nebius x NVIDIA Global AI Hackathon",
+    "url": "https://nebiusglobalaihackathon.devpost.com/"
+  },
+  "deadline": "2026-10-30T17:00:00Z",
+  "registered": true,
+  "rules_acknowledged": false,
+  "current_stage": "prepare-submission",
+  "next_command": "prepare-submission",
+  "completed_stages": [],
+  "submission": {
+    "status": "drafting",
+    "draft_file": "devpost-submission.md",
+    "project_slug": "linemend",
+    "project_id": 1515854,
+    "submission_id": 1270295,
+    "remote_status": "Draft"
+  },
+  "build": {
+    "local_verified": true,
+    "tests": 18,
+    "generated_disruption_cases": 60,
+    "browser_verified": false,
+    "live_nebius_verified": false
+  },
+  "hosting": {
+    "project_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3",
+    "url": "https://linemend-workshop.abhinav-0905.chatgpt.site",
+    "audience": "owner-private",
+    "deployment_status": "succeeded",
+    "source_sha": "57dc7e38edcbdee7783e6a9331e21f278d7d1255"
+  },
+  "repository": "https://github.com/Abhinav0905/linemend",
+  "blockers": [
+    "Browser access host unavailable and native Chrome returns cgWindowNotFound",
+    "Nebius account/key/credits pending",
+    "Public demo access and actual demo video pending",
+    "Eligibility and form personal answers require user confirmation"
+  ]
+}
