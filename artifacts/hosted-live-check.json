@@ -1,0 +1,54 @@
+{
+  "verifiedAt": "2026-10-30T00:58:22.341451+00:00",
+  "audience": "owner-private",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "app_present": true
+    },
+    {
+      "path": "/api/status",
+      "status": 200,
+      "response": {
+        "configured": true,
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "provider": "Nebius Token Factory"
+      }
+    },
+    {
+      "path": "/api/interpret",
+      "status": 200,
+      "response": {
+        "constraints": [
+          {
+            "id": "c1",
+            "kind": "machine_down",
+            "target": "CNC-1",
+            "start": 570,
+            "end": 780,
+            "quote": "CNC-1 is down from 09:30 until 13:00."
+          },
+          {
+            "id": "c2",
+            "kind": "material_delay",
+            "target": "J106",
+            "start": 0,
+            "end": 750,
+            "quote": "The material for J106 will not arrive until 12:30."
+          }
+        ],
+        "questions": [],
+        "source": "nebius",
+        "receipt": {
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "requestId": "chatcmpl-a23dda5cd396b448",
+          "inputTokens": 897,
+          "outputTokens": 137,
+          "latencyMs": 2039,
+          "timestamp": "2026-10-30T00:58:22.375Z"
+        }
+      }
+    }
+  ]
+}

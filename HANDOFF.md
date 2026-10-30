@@ -1,39 +1,38 @@
 # LineMend handoff
 
-Updated October 29, 2026. Deadline: October 30 at 10:00 a.m. Pacific.
+Updated October 29, 2026 Pacific. Deadline: October 30 at 10:00 a.m. Pacific.
 
-## Verified
+## Verified now
 
-- Private app: https://linemend-workshop.abhinav-0905.chatgpt.site
+- Public app: https://linemend-workshop.abhinav-0905.chatgpt.site
 - Public source: https://github.com/Abhinav0905/linemend
-- Devpost draft: https://devpost.com/software/linemend
-- 21 tests pass, including 60 generated disruption cases and shared quota checks. Type check and production build pass.
-- Safari checks passed for all three examples, comparisons, what-if control, valid/invalid imports, CSV/JSON exports, modal keyboard dismissal and responsive layouts. See `artifacts/browser-qa.json`.
-- Shared D1 quota: 100 model calls per UTC day and 300 calls total. A reservation precedes each provider call. Failed calls count. Missing storage stops inference. This does not cap other apps or direct account usage.
-- Latest private deployment succeeded: `appgdep_6ae36bfc66348191bacf7967dd812ada`.
-- Saved version: `appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_4655f2a2632c8191ae6b68c6c322c1e7`.
-- Deployed source: `c4ab9d38ecdb329faeeea6189a9b932c89ccf752`.
+- Published project page: https://devpost.com/software/linemend. The hackathon entry has no submitted timestamp and is not submitted.
+- 22 automated tests pass, including 60 generated disruption cases and shared quota checks. Type checking and production build pass.
+- Five live checks passed using NVIDIA Nemotron 3 Super on Nebius Token Factory: three exact extractions and two appropriate clarifications.
+- Anonymous hosted root, status and interpretation calls passed. The returned breakdown constraints produced an 8/8 checked recovery.
+- The UI now follows the user's requested sequence: problem, approach, working details, result. Safari checks verified real AI extraction, review, automatic scrolling to the calculated result and the 8/8 versus 5/8 comparison. The problem layout was inspected at a narrow responsive breakpoint using browser zoom, then normal zoom was restored.
+- Runtime key is stored as a hosted secret. Local key and personal-answer files are ignored and mode 0600. No key is in Git or the client bundle.
 
-## Current account state
+## Remaining
 
-The user completed Nebius billing and created a key named `hackathon`. A value captured from the one-time dialog failed authentication and did not match the listed ending. The user has been asked to paste the complete copied key into a local password form in Safari. It writes only ignored `.dev.vars` files with mode 0600 and stops after saving. No key is in Git or the hosted Site yet.
+1. The user chose to record the video personally. Do not use Playwright to record. The updated 2:40 guide is in `docs/demo-script.md`. Receive the local video path or public YouTube URL, verify playback and duration, and finish the video field.
+2. Residence, adult age, learning level and career value were confirmed. Exact answers are in ignored `.devpost-local-answers.json`; do not copy them to public source. The final affiliation checkbox must cover all promotion entities, representatives, agents and affiliates.
+3. Obtain the official rules/eligibility agreement, then perform the final submission and verify its submitted timestamp. Do not confuse the published project page with a submitted hackathon entry.
 
-The official $25 hackathon credit request was submitted successfully. The email code is still pending. Activation code: `NEBIUS-DEVPOST-GLOBAL26`.
+The official $25 credit request succeeded, but its email code is still pending. The account already supports the verified inference calls. Shared D1 limits this app to 100 model calls per UTC day and 300 total. Failed calls count; deploys do not reset the total. This is a request cap, not an account-wide financial limit.
 
-## Remaining work
+## Service IDs
 
-1. Verify the complete key with the Nebius model catalog. Do not display it. Run `node --env-file=.dev.vars --experimental-strip-types scripts/live-check.ts` and inspect every extraction and schedule.
-2. Set the hosted `NEBIUS_API_KEY` as a secret and redeploy the saved version to apply the environment revision. Verify real hosted inference and the D1 counter path.
-3. The user explicitly approved public demo access after live checks pass. Change the Site audience to public, then verify anonymous access.
-4. The user chose to record the video personally. Do not use Playwright: permission for that fallback was not given. `docs/demo-script.md` gives a 2:20 recording guide. Verify the final public YouTube link before submitting.
-5. Update the Devpost story with actual model evidence and public links. Collect residence, eligibility attestations and subjective feedback without inventing answers.
-6. Confirm rule/eligibility agreement, submit and verify `Submitted` with a timestamp. The entry is currently Draft, not submitted.
+Site: `appgprj_6ae2fae3cb108191970e9c3f387ac6e3`
 
-## Service and source state
+Deployment: `appgdep_6ae3edefb22c81918a9749a010a5c721`
 
-Site ID: `appgprj_6ae2fae3cb108191970e9c3f387ac6e3`.
-Devpost project ID: `1515854`; submission ID: `1270295`.
+Version: `appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_f900e42cbe188191adea9275e7ca9c75`
 
-The original public repository is `linemend/`. The existing Sites source was opened separately in `linemend-site/` to preserve its original history. Current implementation edits were made there and copied into the public checkout. Use the Sites helper with that checkout for later Site updates, and keep the public GitHub checkout synchronized. Do not create another Site. Runtime secret files are ignored in both checkouts.
+Deployed source: `45403b172ecb5ddebc5d622bb0242273f40968ef`; environment revision 1.
 
-No customer adoption, measured workshop savings or winning probability is claimed.
+Devpost project: 1515854; entry: 1270295.
+
+The public GitHub checkout is `linemend/`. The Sites source checkout is `linemend-site/`; preserve its independent original Git history and existing Site identity. Keep source files synchronized. The browser tab now shows the public app.
+
+No customer adoption, measured workshop savings or winning probability is claimed. See `docs/live-verification.md` for the actual model failures and fixes.

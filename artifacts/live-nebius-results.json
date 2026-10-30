@@ -1,0 +1,456 @@
+{
+  "verifiedAt": "2026-10-30T00:48:05.390Z",
+  "results": [
+    {
+      "example": "breakdown",
+      "interpretation": {
+        "constraints": [
+          {
+            "id": "c1",
+            "kind": "machine_down",
+            "target": "CNC-1",
+            "start": 570,
+            "end": 780,
+            "quote": "CNC-1 is down from 09:30 until 13:00."
+          },
+          {
+            "id": "c2",
+            "kind": "material_delay",
+            "target": "J106",
+            "start": 0,
+            "end": 750,
+            "quote": "The material for J106 will not arrive until 12:30."
+          }
+        ],
+        "questions": [],
+        "source": "nebius",
+        "receipt": {
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "requestId": "chatcmpl-ab3e018e800184ac",
+          "inputTokens": 897,
+          "outputTokens": 137,
+          "latencyMs": 3877,
+          "timestamp": "2026-10-30T00:47:57.763Z"
+        }
+      },
+      "plan": {
+        "placements": [
+          {
+            "jobId": "J101",
+            "machineId": "CNC-1",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J105",
+            "machineId": "CNC-2",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J107",
+            "machineId": "LASER",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J102",
+            "machineId": "CNC-2",
+            "start": 570,
+            "end": 690
+          },
+          {
+            "jobId": "J108",
+            "machineId": "LASER",
+            "start": 570,
+            "end": 660
+          },
+          {
+            "jobId": "J103",
+            "machineId": "CNC-2",
+            "start": 690,
+            "end": 780
+          },
+          {
+            "jobId": "J104",
+            "machineId": "CNC-1",
+            "start": 780,
+            "end": 840
+          },
+          {
+            "jobId": "J106",
+            "machineId": "CNC-2",
+            "start": 780,
+            "end": 900
+          }
+        ],
+        "unscheduled": [],
+        "metrics": {
+          "onTime": 8,
+          "late": 0,
+          "tardiness": 0,
+          "moved": 4,
+          "machineChanges": 2,
+          "shift": 285,
+          "unscheduled": 0
+        },
+        "checks": [
+          {
+            "name": "Every job accounted for",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Machine compatibility & duration",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "No machine overlaps",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Downtime respected",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Material available",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Locked work unchanged",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Within the shift",
+            "passed": true,
+            "details": []
+          }
+        ],
+        "explored": 443,
+        "complete": true,
+        "elapsedMs": 4
+      }
+    },
+    {
+      "example": "stock",
+      "interpretation": {
+        "constraints": [
+          {
+            "id": "c1",
+            "kind": "material_delay",
+            "target": "J102",
+            "start": 0,
+            "end": 840,
+            "quote": "The stock for J102 is delayed until 14:00."
+          },
+          {
+            "id": "c2",
+            "kind": "deadline",
+            "target": "J102",
+            "start": 0,
+            "end": 780,
+            "quote": "J102 must still be finished by 13:00."
+          }
+        ],
+        "questions": [],
+        "source": "nebius",
+        "receipt": {
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "requestId": "chatcmpl-a3796b63b26afe76",
+          "inputTokens": 878,
+          "outputTokens": 129,
+          "latencyMs": 2646,
+          "timestamp": "2026-10-30T00:48:00.426Z"
+        }
+      },
+      "plan": {
+        "placements": [
+          {
+            "jobId": "J101",
+            "machineId": "CNC-1",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J105",
+            "machineId": "CNC-2",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J107",
+            "machineId": "LASER",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J106",
+            "machineId": "CNC-2",
+            "start": 570,
+            "end": 690
+          },
+          {
+            "jobId": "J108",
+            "machineId": "LASER",
+            "start": 570,
+            "end": 660
+          },
+          {
+            "jobId": "J103",
+            "machineId": "CNC-1",
+            "start": 660,
+            "end": 735
+          },
+          {
+            "jobId": "J104",
+            "machineId": "CNC-1",
+            "start": 735,
+            "end": 795
+          },
+          {
+            "jobId": "J102",
+            "machineId": "CNC-1",
+            "start": 840,
+            "end": 930
+          }
+        ],
+        "unscheduled": [],
+        "metrics": {
+          "onTime": 7,
+          "late": 1,
+          "tardiness": 450,
+          "moved": 1,
+          "machineChanges": 0,
+          "shift": 270,
+          "unscheduled": 0
+        },
+        "checks": [
+          {
+            "name": "Every job accounted for",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Machine compatibility & duration",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "No machine overlaps",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Downtime respected",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Material available",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Locked work unchanged",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Within the shift",
+            "passed": true,
+            "details": []
+          }
+        ],
+        "explored": 2068,
+        "complete": true,
+        "elapsedMs": 11
+      }
+    },
+    {
+      "example": "promise",
+      "interpretation": {
+        "constraints": [
+          {
+            "id": "c1",
+            "kind": "machine_down",
+            "target": "CNC-1",
+            "start": 570,
+            "end": 780,
+            "quote": "CNC-1 is unavailable from 09:30 until 13:00."
+          },
+          {
+            "id": "c2",
+            "kind": "deadline",
+            "target": "J104",
+            "start": 0,
+            "end": 810,
+            "quote": "J104 now has a firm deadline of 13:30."
+          },
+          {
+            "id": "c3",
+            "kind": "material_delay",
+            "target": "J106",
+            "start": 0,
+            "end": 750,
+            "quote": "The material for J106 arrives at 12:30."
+          }
+        ],
+        "questions": [],
+        "source": "nebius",
+        "receipt": {
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "requestId": "chatcmpl-b4adea42e6490d91",
+          "inputTokens": 893,
+          "outputTokens": 194,
+          "latencyMs": 3064,
+          "timestamp": "2026-10-30T00:48:03.502Z"
+        }
+      },
+      "plan": {
+        "placements": [
+          {
+            "jobId": "J101",
+            "machineId": "CNC-1",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J105",
+            "machineId": "CNC-2",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J107",
+            "machineId": "LASER",
+            "start": 480,
+            "end": 570
+          },
+          {
+            "jobId": "J102",
+            "machineId": "CNC-2",
+            "start": 570,
+            "end": 690
+          },
+          {
+            "jobId": "J108",
+            "machineId": "LASER",
+            "start": 570,
+            "end": 660
+          },
+          {
+            "jobId": "J103",
+            "machineId": "CNC-2",
+            "start": 690,
+            "end": 780
+          },
+          {
+            "jobId": "J104",
+            "machineId": "CNC-1",
+            "start": 780,
+            "end": 840
+          },
+          {
+            "jobId": "J106",
+            "machineId": "CNC-2",
+            "start": 780,
+            "end": 900
+          }
+        ],
+        "unscheduled": [],
+        "metrics": {
+          "onTime": 7,
+          "late": 1,
+          "tardiness": 90,
+          "moved": 4,
+          "machineChanges": 2,
+          "shift": 285,
+          "unscheduled": 0
+        },
+        "checks": [
+          {
+            "name": "Every job accounted for",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Machine compatibility & duration",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "No machine overlaps",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Downtime respected",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Material available",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Locked work unchanged",
+            "passed": true,
+            "details": []
+          },
+          {
+            "name": "Within the shift",
+            "passed": true,
+            "details": []
+          }
+        ],
+        "explored": 928,
+        "complete": true,
+        "elapsedMs": 5
+      }
+    }
+  ],
+  "clarificationResults": [
+    {
+      "note": "CNC-1 is down from 09:30. It might be back by 13:00, but maintenance has not confirmed the time.",
+      "interpretation": {
+        "constraints": [],
+        "questions": [
+          "What is the expected return time for CNC-1?"
+        ],
+        "source": "nebius",
+        "receipt": {
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "requestId": "chatcmpl-b46072ee3633c595",
+          "inputTokens": 868,
+          "outputTokens": 24,
+          "latencyMs": 780,
+          "timestamp": "2026-10-30T00:48:04.287Z"
+        }
+      }
+    },
+    {
+      "note": "CNC-9 is unavailable from 09:30 until 13:00.",
+      "interpretation": {
+        "constraints": [],
+        "questions": [
+          "What is the correct machine ID for the machine reported as CNC-9? It is not listed in known_targets."
+        ],
+        "source": "nebius",
+        "receipt": {
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "requestId": "chatcmpl-93ef6a6b0ca9941b",
+          "inputTokens": 855,
+          "outputTokens": 36,
+          "latencyMs": 1102,
+          "timestamp": "2026-10-30T00:48:05.389Z"
+        }
+      }
+    }
+  ]
+}

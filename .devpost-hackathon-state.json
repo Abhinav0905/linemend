@@ -16,32 +16,49 @@
     "project_slug": "linemend",
     "project_id": 1515854,
     "submission_id": 1270295,
-    "remote_status": "Draft"
+    "remote_status": "not_submitted",
+    "remote_project_state": "published",
+    "submitted_at": null,
+    "last_verified_at": "2026-10-29T16:29:37.603Z",
+    "local_answers_file": ".devpost-local-answers.json",
+    "confirmed_personal_field_ids": [
+      28265,
+      28266,
+      28283,
+      29060,
+      29061
+    ]
   },
   "build": {
     "local_verified": true,
-    "tests": 21,
+    "tests": 22,
     "generated_disruption_cases": 60,
     "browser_verified": true,
-    "live_nebius_verified": false
+    "live_nebius_verified": true,
+    "live_model": "nvidia/nemotron-3-super-120b-a12b",
+    "live_evidence": "artifacts/live-nebius-results.json",
+    "hosted_live_verified": true,
+    "guided_flow_verified": true
   },
   "hosting": {
     "project_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3",
     "url": "https://linemend-workshop.abhinav-0905.chatgpt.site",
-    "audience": "owner-private",
+    "audience": "public",
     "deployment_status": "succeeded",
-    "source_sha": "c4ab9d38ecdb329faeeea6189a9b932c89ccf752",
-    "deployment_id": "appgdep_6ae36bfc66348191bacf7967dd812ada",
-    "version_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_4655f2a2632c8191ae6b68c6c322c1e7",
-    "public_access_authorized": true
+    "source_sha": "45403b172ecb5ddebc5d622bb0242273f40968ef",
+    "deployment_id": "appgdep_6ae3edefb22c81918a9749a010a5c721",
+    "version_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_f900e42cbe188191adea9275e7ca9c75",
+    "public_access_authorized": true,
+    "env_revision": 1,
+    "anonymous_live_verified": true
   },
   "repository": "https://github.com/Abhinav0905/linemend",
   "blockers": [
-    "Complete Nebius API key: captured value failed authentication; user is replacing it through local-only setup form",
-    "Hackathon credit code requested; email pending",
-    "Successful live NVIDIA model calls and hosted secret setup",
-    "User will record the demo video; public YouTube link pending",
-    "Eligibility and personal form answers require user confirmation"
+    "User is recording the demo; public YouTube URL pending",
+    "Final promotion-entity affiliation declaration and official rules agreement"
   ],
-  "recording_owner": "user"
+  "recording_owner": "user",
+  "optional_followups": [
+    "Hackathon credit request submitted; email code still pending"
+  ]
 }

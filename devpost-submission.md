@@ -18,7 +18,7 @@ The next useful action is deciding which orders can finish today and which custo
 
 ## How We Used AI
 
-The implemented adapter uses NVIDIA Nemotron on Nebius Token Factory for strict JSON constraint extraction. Returned entity names, source quotes and explicit times are checked before review. The model does not calculate the schedule. Live inference is not yet verified because account setup is pending.
+The implemented adapter uses NVIDIA Nemotron on Nebius Token Factory for strict JSON constraint extraction. Returned entity names, source quotes and explicit times are checked before review. The model does not calculate the schedule. Live inference passed five checks using NVIDIA Nemotron 3 Super on Nebius Token Factory. Three extracted constraint sets matched the fixtures exactly, and two uncertain/unknown-target notes requested clarification.
 
 ## How We Used Codex
 
@@ -50,19 +50,19 @@ Browser note and workshop → server-side Nemotron request → schema/entity/quo
 
 ## Public Demo Link
 
-Pending public access. Current owner-private preview: https://linemend-workshop.abhinav-0905.chatgpt.site
+Public and verified without sign-in: https://linemend-workshop.abhinav-0905.chatgpt.site
 
-The hosted root and status endpoint return HTTP 200 using authorized private service access. Missing-key inference returns HTTP 503 with an explicit setup message. Local browser QA also passed; see `artifacts/browser-qa.json`.
+Anonymous root, status and live interpretation requests returned HTTP 200. The live extracted breakdown constraints matched exactly and produced an 8/8 checked recovery. The four-part UI was reviewed in Safari; see `artifacts/public-live-check.json` and `artifacts/browser-qa.json`.
 
 ## Public Repository Link
 
 https://github.com/Abhinav0905/linemend
 
-MIT license detected by GitHub. Initial CI succeeded: https://github.com/Abhinav0905/linemend/actions/runs/40842143456
+MIT license detected by GitHub. Latest verified CI succeeded for source commit 8d098d49126eff7fba19029e16a0df863326f275: https://github.com/Abhinav0905/linemend/actions/runs/40909594346
 
 ## Demo Video
 
-Pending recording and public YouTube upload. The exact 2:20 outline is in `docs/demo-script.md`. Record actual live inference and browser interactions after setup. Do not describe example constraints as a live model response.
+Pending recording and public YouTube upload. The exact 2:40 outline is in `docs/demo-script.md`. Record actual live inference and browser interactions after setup. Do not describe example constraints as a live model response.
 
 ## Screenshot Shot List
 
@@ -76,11 +76,11 @@ Pending recording and public YouTube upload. The exact 2:20 outline is in `docs/
 
 ## Submission Readiness Notes
 
-The Devpost project exists in **Draft** state, project ID 1515854, submission ID 1270295. It is not submitted. The full story draft is in `docs/submission-draft.md` and has also been saved to Devpost with its current limitations.
+The Devpost project page is **published**, project ID 1515854. The hackathon entry, submission ID 1270295, is **not submitted** and has no submitted timestamp. The full story draft is in `docs/submission-draft.md` and has also been saved to Devpost with its current limitations.
 
-Completed: local app, production build, 21 tests including 60 generated cases, type checking, public MIT repository, GitHub Actions, private deployment, authenticated hosted HTTP checks, draft story, video outline and calculated comparison graphic.
+Completed: local app, production build, 22 tests including 60 generated cases, type checking, public MIT repository, GitHub Actions, public deployment, anonymous hosted inference checks, draft story, video outline and calculated comparison graphic.
 
-Outstanding: complete API key and credits, successful runtime NVIDIA model calls, public judge access after those calls pass, actual demo recording by the user, public YouTube upload, provider-experience answers and final entry confirmation.
+Outstanding: receive the user's recording and public YouTube URL, complete the final eligibility/rules declaration and submit. The optional hackathon credit code is still pending.
 
 ## Known Limitations
 
@@ -90,25 +90,25 @@ One shift, one operation per job, fixed setup allowances. No shared operator con
 
 - 28261 Submitter Type: proposed Individual; verify before entry.
 - 28262 Organization: proposed N/A for a personal entry.
-- 28265 Country of residence: needs user confirmation.
-- 28266 Canadian province: needs the residence answer; do not infer from timezone.
+- 28265 Country of residence: confirmed by the user; stored in ignored `.devpost-local-answers.json`.
+- 28266 Canadian province: confirmed from the residence answer; stored in the local answer file.
 - 28267 Track: Best apps and agents.
 - 28268 New or existing: New, created October 29, 2026.
 - 28270 Code repository: https://github.com/Abhinav0905/linemend
-- 28271 Working demo: public access still pending.
-- 28272 Models/variant: default NVIDIA Nemotron 3 Nano 30B-A3B; final answer must name the model actually used in verified runtime calls.
-- 28273 Output-quality rating: pending live evidence.
+- 28271 Working demo: https://linemend-workshop.abhinav-0905.chatgpt.site (public access and anonymous live inference verified).
+- 28272 Models/variant: NVIDIA Nemotron 3 Super, `nvidia/nemotron-3-super-120b-a12b`, selected after the five-case live check passed. Nano was evaluated on the breakdown note and produced an unsupported job lock.
+- 28273 Output-quality rating: 8/10 for this limited extraction task. Final run: three exact fixture extractions and two appropriate clarifications; source checks and supervisor review remain necessary.
 - 28274 Approach: prompt engineering and strict structured output; no fine-tuning.
-- 28275 Model comparison: no controlled cross-model benchmark was run. Do not invent one.
-- 28276 Nebius capabilities: runtime inference and JSON schema support, subject to completing live verification.
-- 28277 Recommendation rating: pending live experience.
-- 28278 Cloud/local experience rating: pending live experience.
-- 28279 Improvements: write from observed setup/model behavior after live testing.
-- 28280 Desired Nemotron improvements: write from observed behavior after live testing.
+- 28275 Model comparison: one synthetic note was sent to Nano and Super with the same prompt. Nano added an unsupported lock and was rejected; Super returned the two expected constraints. This is a narrow fixture comparison, not a broad benchmark.
+- 28276 Nebius capabilities: hosted runtime inference, an OpenAI-compatible endpoint and JSON schema output avoided managing GPU infrastructure. Five final model calls used 4,391 input and 520 output tokens.
+- 28277 Recommendation rating: 8/10 for this project. The typed API integration was small and all five final live checks passed; credit, billing and key setup required several steps.
+- 28278 Cloud/local experience rating: 8/10 for this build. No GPU server setup was required. We did not run a controlled comparison with local inference or another cloud.
+- 28279 Improvements: a clearly surfaced per-key hard spending cap and a setup checklist for credits, billing and keys would help short hackathon builds.
+- 28280 Desired Nemotron improvements: stronger adherence to source-only extraction, especially generic instructions that must not become unsupported entity-specific constraints.
 - 28282 Tavily: No; not used in the product.
-- 28283 Age checkbox: requires confirmation, not checked by the agent.
-- 28284 Promotion-entity employment checkbox: requires confirmation, not checked by the agent.
-- 29059 AI tools used: Codex for implementation; NVIDIA Nemotron after runtime verification.
-- 29060 Learning level and 29061 career value: leave for the user's assessment.
+- 28283 Age checkbox: adult age confirmed by the user; the local answer file contains the answer.
+- 28284 Promotion-entity employment checkbox: The final declaration must cover all promotion entities, representatives, agents and affiliates.
+- 29059 AI tools used: Codex for research, implementation and testing; NVIDIA Nemotron Nano for a limited extraction comparison and Nemotron Super for verified runtime extraction.
+- 29060 Learning level and 29061 career value: answered by the user and stored in the local answer file.
 
 No Codex session ID is requested by this event's live form.

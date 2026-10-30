@@ -67,5 +67,22 @@
     "Live Nebius inference",
     "Public hosted path after final deployment",
     "Video recording"
-  ]
+  ],
+  "guidedFlowUpdate": {
+    "verifiedAt": "2026-10-30T01:07:12.872Z",
+    "browser": "Safari",
+    "checks": [
+      "Problem and handover example appear before the approach",
+      "Approach explains AI extraction, supervisor review and scheduling",
+      "Details section shows the original schedule and editable note before any result",
+      "A real Nemotron Super call returned two source-grounded constraints in the browser",
+      "Confirm and recover scrolls to the separate result section",
+      "Recovery shows 8/8; old-queue comparison shows 5/8",
+      "Problem layout stacks vertically at the narrow responsive breakpoint using browser zoom; normal zoom restored"
+    ],
+    "limits": [
+      "No physical mobile device test",
+      "The user is recording the video; no video artifact received"
+    ]
+  }
 }

@@ -4,18 +4,18 @@
 
 LineMend helps a small fabrication workshop repair its daily plan after a breakdown, late material delivery or changed deadline. NVIDIA Nemotron reads the handover note through Nebius Token Factory. A local scheduling engine searches compatible machine routes and job orders, then checks the proposed schedule.
 
-The supervisor can inspect source quotes, correct a constraint, compare against keeping the old queue, change the repair time and export a schedule with its evidence.
+The guided demo follows four sections: the workshop problem, the approach, the note and constraints, then the calculated result. The supervisor can inspect source quotes, correct a constraint, compare against keeping the old queue, change the repair time and export a schedule with its evidence.
 
 Built for the **Nebius x NVIDIA Global AI Hackathon**, Best Apps and Agents track. New project created October 29, 2026. MIT licensed.
 
 ## Current status
 
-- Working local application and production build. [Owner-private hosted preview](https://linemend-workshop.abhinav-0905.chatgpt.site), with successful authenticated HTTP checks.
-- 21 automated tests pass, including 60 generated disruption cases.
+- [Open the public demo](https://linemend-workshop.abhinav-0905.chatgpt.site). Anonymous page access and a real hosted Nemotron extraction passed; the returned constraints produced a checked 8/8 recovery. See [public verification](artifacts/public-live-check.json).
+- 22 automated tests pass, including 60 generated disruption cases.
 - Three fictional workshop examples work without credentials. They are marked **Example constraints - no model call**.
-- The real Nebius adapter is implemented. **Live inference has not yet been verified; account setup and an API key are pending.** A missing or rejected key produces an error. There is no fake model fallback.
+- **Live Nebius inference passed five checks with NVIDIA Nemotron 3 Super:** exact extraction for three fictional examples and clarification for two ambiguous/unknown-target notes. [Request receipts and results](artifacts/live-nebius-results.json) are saved. A missing or rejected key produces an error; there is no fake model fallback.
 - Browser QA passed for all three examples, schedule comparisons, repair-time edits, valid/invalid imports and CSV/JSON exports. Desktop and narrow responsive layouts were inspected in Safari.
-- A [Devpost draft](https://devpost.com/software/linemend) is saved. It is not submitted, and the public demo video is not complete.
+- The [Devpost project page](https://devpost.com/software/linemend) is published. The hackathon entry is not submitted, and the public demo video is not complete.
 
 ![Calculated example comparison, not an app screenshot](artifacts/linemend-comparison.png)
 
@@ -39,7 +39,7 @@ For live interpretation, add your key to the ignored `.dev.vars` file and restar
 
 ```text
 NEBIUS_API_KEY=<your Token Factory key>
-NEBIUS_MODEL=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B
+NEBIUS_MODEL=nvidia/nemotron-3-super-120b-a12b
 ```
 
 The browser never receives the API key. Do not commit `.dev.vars`. The hosted application needs the same values in its server environment.
@@ -55,16 +55,18 @@ Run the migration once per local database. Sites applies it to the hosted databa
 
 ## NVIDIA and Nebius integration
 
-`lib/nebius.ts` calls `https://api.tokenfactory.nebius.com/v1/chat/completions` at runtime. Its default model is `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B`. The model extracts four constraint types using a strict JSON schema:
+`lib/nebius.ts` calls `https://api.tokenfactory.nebius.com/v1/chat/completions` at runtime. Its default model is `nvidia/nemotron-3-super-120b-a12b`. The model extracts four constraint types using a strict JSON schema:
 
 - `machine_down`: a machine and an unavailable interval
 - `material_delay`: a job and its material-ready time
 - `deadline`: a job and revised due time
 - `lock_job`: a named job that must keep its original slot
 
-The request includes the workshop and note. The response must identify known entities and supply exact source quotes containing its times. Ambiguous or unsupported operational requests belong in a clarification list. Clarifications block planning until the note is corrected and interpreted again.
+The request includes only the note and a dictionary of machine/job IDs and names. Scheduling data stays in the deterministic planner. The response must identify known entities and supply exact source quotes containing its times. Ambiguous or unsupported operational requests belong in a clarification list. Clarifications block planning until the note is corrected and interpreted again.
 
 A successful live response records the returned model name, request ID, input/output token counts, latency and timestamp. Errors, truncated output, invalid JSON and failed evidence checks stop the flow. Unit tests use clearly identified fake responses and do not establish live provider access.
+
+The final five-case live run took 0.78-3.88 seconds per model call. A preceding one-note comparison found an unsupported job lock in Nano's response; evidence validation rejected it. Super was selected after the five-case check passed. This is a small fixture evaluation, not a general model benchmark. See [the verification notes](docs/live-verification.md).
 
 Official API references: [quickstart](https://docs.tokenfactory.nebius.com/quickstart), [structured output](https://docs.tokenfactory.nebius.com/ai-models-inference/json).
 
@@ -111,7 +113,7 @@ npm run typecheck
 npm run build
 ```
 
-The 21 tests cover examples, impossible schedules, frozen-work conflicts, overlap and route rejection, import validation, quote/time evidence, model errors and 60 generated disruptions. The provider tests are mocked. Live smoke testing is a separate step with `node --env-file=.dev.vars --experimental-strip-types scripts/live-check.ts`.
+The 22 tests cover examples, impossible schedules, frozen-work conflicts, overlap and route rejection, import validation, quote/time evidence, model errors and 60 generated disruptions. The provider tests are mocked. Live smoke testing is a separate step with `node --env-file=.dev.vars --experimental-strip-types scripts/live-check.ts`.
 
 The app uses React, TypeScript and Vinext. The Sites build packages it as a Cloudflare Worker with a client bundle. A GitHub Actions workflow runs tests, type checking and build on push.
 
@@ -121,4 +123,4 @@ This is a one-shift, single-operation prototype. Durations include fixed setup a
 
 Quote checks establish textual grounding, not correct interpretation of every sentence. Human review remains necessary. The API has bounded input size, per-visitor throttling and a shared D1 request budget of 100 calls per UTC day and 300 calls total. Each request reserves a slot atomically before contacting Nebius; failed provider calls count too. Deploys do not reset the total. Missing quota storage stops inference. This caps requests through this demo, not usage from other apps or direct use of the same API key.
 
-Live requests send the note and workshop to Nebius. The app does not persist inputs on its server. This prototype is not connected to a real production system.
+Live requests send the note and machine/job names to Nebius. The app does not persist inputs on its server. This prototype is not connected to a real production system.

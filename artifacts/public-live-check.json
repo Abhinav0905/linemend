@@ -1,0 +1,87 @@
+{
+  "verifiedAt": "2026-10-30T01:08:49.801Z",
+  "url": "https://linemend-workshop.abhinav-0905.chatgpt.site",
+  "audience": "public",
+  "authenticationSent": false,
+  "rootStatus": 200,
+  "statusEndpoint": {
+    "status": 200,
+    "response": {
+      "configured": true,
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "provider": "Nebius Token Factory"
+    }
+  },
+  "guidedSectionsPresent": true,
+  "liveInterpretationStatus": 200,
+  "interpretation": {
+    "constraints": [
+      {
+        "id": "c1",
+        "kind": "machine_down",
+        "target": "CNC-1",
+        "start": 570,
+        "end": 780,
+        "quote": "CNC-1 is down from 09:30 until 13:00."
+      },
+      {
+        "id": "c2",
+        "kind": "material_delay",
+        "target": "J106",
+        "start": 0,
+        "end": 750,
+        "quote": "The material for J106 will not arrive until 12:30."
+      }
+    ],
+    "questions": [],
+    "source": "nebius",
+    "receipt": {
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "requestId": "chatcmpl-94a72be1e0436cf4",
+      "inputTokens": 897,
+      "outputTokens": 137,
+      "latencyMs": 1650,
+      "timestamp": "2026-10-30T01:08:49.840Z"
+    }
+  },
+  "checkedSchedule": {
+    "onTime": 8,
+    "checks": [
+      {
+        "name": "Every job accounted for",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "Machine compatibility & duration",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "No machine overlaps",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "Downtime respected",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "Material available",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "Locked work unchanged",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "Within the shift",
+        "passed": true,
+        "details": []
+      }
+    ]
+  }
+}

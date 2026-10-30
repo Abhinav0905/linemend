@@ -84,6 +84,11 @@ test('model output with an invented time fails before it can reach the scheduler
   const fake=(async()=>Response.json({choices:[{finish_reason:'stop',message:{content:JSON.stringify({constraints:cs,questions:[]})}}]})) as typeof fetch;
   await assert.rejects(()=>interpret(examples[0].note,workshop,'test-key',undefined,fake),/evidence check failed/);
 });
+test('a generic completed-work instruction cannot lock an unnamed unfinished job',async()=>{
+  const constraints=[...examples[0].constraints,{id:'unsupported_lock',kind:'lock_job',target:'J106',start:0,end:0,quote:'Keep completed jobs in their original slots.'}];
+  const fake=(async()=>Response.json({choices:[{finish_reason:'stop',message:{content:JSON.stringify({constraints,questions:[]})}}]})) as typeof fetch;
+  await assert.rejects(()=>interpret(examples[0].note,workshop,'test-key',undefined,fake),/quote does not identify its target/);
+});
 test('sampled disruptions preserve physical constraints across 60 deterministic cases',()=>{
   let seed=901;const rand=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
   for(let i=0;i<60;i++){

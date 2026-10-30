@@ -1,2 +1,2 @@
 NEBIUS_API_KEY=
-NEBIUS_MODEL=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B
+NEBIUS_MODEL=nvidia/nemotron-3-super-120b-a12b

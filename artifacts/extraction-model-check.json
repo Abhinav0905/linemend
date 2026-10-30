@@ -1,0 +1,84 @@
+{
+  "verifiedAt": "2026-10-30T00:45:59.689Z",
+  "note": "09:30 handover: CNC-1 is down from 09:30 until 13:00. The material for J106 will not arrive until 12:30. Keep completed jobs in their original slots. The delivery deadlines have not changed.",
+  "scope": "One synthetic note, not a general benchmark",
+  "observations": [
+    {
+      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+      "error": "Model evidence check failed: J106-lock-0-0: the quote does not identify its target.",
+      "responseBody": {
+        "id": "chatcmpl-071fc336-ef3f-4b80-ba88-7f3ff7ac5894",
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n  \"constraints\": [\n    {\n      \"id\": \"CNC-1-down-0930-1300\",\n      \"kind\": \"machine_down\",\n      \"target\": \"CNC-1\",\n      \"start\": 570,\n      \"end\": 780,\n      \"quote\": \"CNC-1 is down from 09:30 until 13:00.\"\n    },\n    {\n      \"id\": \"J106-material-delay-0-1230\",\n      \"kind\": \"material_delay\",\n      \"target\": \"J106\",\n      \"start\": 0,\n      \"end\": 750,\n      \"quote\": \"The material for J106 will not arrive until 12:30.\"\n    },\n    {\n      \"id\": \"J106-lock-0-0\",\n      \"kind\": \"lock_job\",\n      \"target\": \"J106\",\n      \"start\": 0,\n      \"end\": 0,\n      \"quote\": \"Keep completed jobs in their original slots.\"\n    }\n  ],\n  \"questions\": []\n}",
+              "refusal": null,
+              "role": "assistant",
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "tool_calls": [],
+              "reasoning": null
+            },
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "created": 1793321155,
+        "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+        "object": "chat.completion",
+        "moderation": null,
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.22.0-b08c96cd",
+        "usage": {
+          "completion_tokens": 247,
+          "prompt_tokens": 789,
+          "total_tokens": 1036,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null
+      }
+    },
+    {
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "result": {
+        "constraints": [
+          {
+            "id": "c1",
+            "kind": "machine_down",
+            "target": "CNC-1",
+            "start": 570,
+            "end": 780,
+            "quote": "CNC-1 is down from 09:30 until 13:00."
+          },
+          {
+            "id": "c2",
+            "kind": "material_delay",
+            "target": "J106",
+            "start": 0,
+            "end": 750,
+            "quote": "The material for J106 will not arrive until 12:30."
+          }
+        ],
+        "questions": [],
+        "source": "nebius",
+        "receipt": {
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "requestId": "chatcmpl-9532dab6c634ebac",
+          "inputTokens": 789,
+          "outputTokens": 137,
+          "latencyMs": 1416,
+          "timestamp": "2026-10-30T00:45:59.688Z"
+        }
+      }
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Tagline: A machine went down. Turn the handover into a checked recovery schedule
 
 Track: Best apps and agents
 
-Status: Local draft. Update the live-inference and deployment facts before copying this to Devpost.
+Status: Public demo and live model checks verified. The video and final hackathon submission are pending.
 
 ## Inspiration
 
@@ -22,21 +22,23 @@ The bundled breakdown example recovers eight on-time orders versus five under th
 
 ## How we built it
 
-React and TypeScript provide the browser board. The server adapter calls NVIDIA Nemotron through Nebius Token Factory using strict structured output. Schema, known-entity, source-quote and time checks run before the result reaches the review screen.
+React and TypeScript provide the browser board. The server adapter calls NVIDIA Nemotron 3 Super (120B-A12B) through Nebius Token Factory using strict structured output. Schema, known-entity, source-quote and time checks run before the result reaches the review screen.
 
 A separate deterministic engine searches job sequences and machine routes. Another validator checks allocations against the hard constraints. The language model does not invent job durations, certify machines or calculate the final schedule.
 
-Live provider access is still pending at the time of this draft. Do not present the mocked provider tests as live Nebius usage.
+Five live provider checks passed: three exact fixture extractions and two clarification cases. Every successful call has a saved model ID, request ID, token counts and timing receipt.
 
 ## Challenges
 
 A schedule can look convincing and still run work during downtime or before material arrives. We kept extraction, review, planning and validation separate. We also needed a comparison policy that could be explained precisely: keep the original machine queues and shift them forward without reordering or rerouting.
 
+Live testing caught a plausible but unsupported job lock in Nano's output. The quote check rejected it. We reduced the input to entity names, clarified extraction rules, aligned the provider schema with local validation and selected Super after its five-case run passed. These are small synthetic checks, not a claim of general model superiority.
+
 An impossible deadline is a useful output. We calculate a lower bound for each job instead of hiding it behind a successful-looking schedule.
 
 ## What we verified
 
-Twenty-one automated tests pass, including sixty generated disruption cases. They cover physical constraints, locked-work conflicts, missing jobs, incompatible routes, invalid imports and fabricated model evidence. Type checking and the production build pass. Provider unit tests use mocked responses; live verification is pending. Browser checks passed for all three examples, comparison views, repair-time edits, valid and invalid imports, exports and responsive layouts. A shared database limits the hosted demo to 100 model requests per day and 300 total.
+Twenty-two automated tests pass, including sixty generated disruption cases. They cover physical constraints, locked-work conflicts, missing jobs, incompatible routes, invalid imports and fabricated model evidence. Type checking and the production build pass. Provider unit tests use mocked responses. A separate five-case live check passed with Nemotron Super; measured calls took 0.78-3.88 seconds. Browser checks passed for all three examples, comparison views, repair-time edits, valid and invalid imports, exports and responsive layouts. A shared database limits the hosted demo to 100 model requests per day and 300 total.
 
 ## What's next
 
@@ -44,4 +46,4 @@ Test with an anonymized real workshop schedule and handover. Then add shared ope
 
 ## Nebius feedback
 
-The OpenAI-compatible endpoint and structured-output interface fit a small typed adapter without managing a GPU server. Account onboarding and live model behavior have not yet been evaluated. Add measured latency, response quality and setup feedback after the live run.
+The OpenAI-compatible endpoint and structured-output interface let us run Nemotron without managing a GPU server. The final five calls used 4,391 input tokens and 520 output tokens. Source grounding still needs application checks: valid JSON alone did not prevent an unsupported lock. A clearly surfaced per-key spending cap and an onboarding checklist for credit activation, billing and API keys would help short hackathon builds.
