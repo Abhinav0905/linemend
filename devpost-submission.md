@@ -22,7 +22,7 @@ The implemented adapter uses NVIDIA Nemotron on Nebius Token Factory for strict 
 
 ## How We Used Codex
 
-Codex researched the official requirements and indexed public entries, designed the bounded workflow, implemented the app and scheduling engine, added validation and tests, prepared the docs and deployed the private preview. The user selected the event and asked for end-to-end work within a nine-hour budget.
+Codex researched the official requirements and indexed public entries, designed the bounded workflow, implemented the app and scheduling engine, added validation and tests, prepared the docs and deployed the app. The user selected the event, directed the problem-to-result presentation, configured the accounts, chose standalone Cloudflare hosting and is recording the demo. The original requested build budget was nine hours.
 
 ## Key Features
 
@@ -50,7 +50,7 @@ Browser note and workshop → server-side Nemotron request → schema/entity/quo
 
 ## Public Demo Link
 
-Public and verified without sign-in: https://linemend-workshop.abhinav-0905.chatgpt.site
+Public and verified without sign-in: https://linemend.linemend.workers.dev
 
 Anonymous root, status and live interpretation requests returned HTTP 200. The live extracted breakdown constraints matched exactly and produced an 8/8 checked recovery. The four-part UI was reviewed in Safari; see `artifacts/public-live-check.json` and `artifacts/browser-qa.json`.
 
@@ -95,7 +95,7 @@ One shift, one operation per job, fixed setup allowances. No shared operator con
 - 28267 Track: Best apps and agents.
 - 28268 New or existing: New, created October 29, 2026.
 - 28270 Code repository: https://github.com/Abhinav0905/linemend
-- 28271 Working demo: https://linemend-workshop.abhinav-0905.chatgpt.site (public access and anonymous live inference verified).
+- 28271 Working demo: https://linemend.linemend.workers.dev (public access and anonymous live inference verified).
 - 28272 Models/variant: NVIDIA Nemotron 3 Super, `nvidia/nemotron-3-super-120b-a12b`, selected after the five-case live check passed. Nano was evaluated on the breakdown note and produced an unsupported job lock.
 - 28273 Output-quality rating: 8/10 for this limited extraction task. Final run: three exact fixture extractions and two appropriate clarifications; source checks and supervisor review remain necessary.
 - 28274 Approach: prompt engineering and strict structured output; no fine-tuning.

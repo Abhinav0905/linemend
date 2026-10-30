@@ -84,5 +84,20 @@
       "No physical mobile device test",
       "The user is recording the video; no video artifact received"
     ]
+  },
+  "cloudflareMigration": {
+    "verifiedAt": "2026-10-30T01:44:19.369416+00:00",
+    "url": "https://linemend.linemend.workers.dev",
+    "browser": "Safari on macOS via native computer control",
+    "checks": [
+      "Problem and approach render over HTTPS",
+      "Live Nemotron response returned two grounded constraints",
+      "Confirm and recover revealed the result section",
+      "Recovery 8/8 and old queue 5/8 displayed correctly"
+    ],
+    "limits": [
+      "No new physical mobile-device test",
+      "The user is recording; no video received"
+    ]
   }
 }

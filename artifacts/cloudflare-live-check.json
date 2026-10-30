@@ -1,0 +1,182 @@
+{
+  "verifiedAt": "2026-10-30T01:40:43.657Z",
+  "url": "https://linemend.linemend.workers.dev",
+  "anonymous": true,
+  "rootStatus": 200,
+  "status": {
+    "configured": true,
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "provider": "Nebius Token Factory"
+  },
+  "crossOriginStatus": 403,
+  "scenarios": [
+    {
+      "scenario": "Machine breakdown",
+      "httpStatus": 200,
+      "interpretation": {
+        "constraints": [
+          {
+            "id": "c1",
+            "kind": "machine_down",
+            "target": "CNC-1",
+            "start": 570,
+            "end": 780,
+            "quote": "CNC-1 is down from 09:30 until 13:00."
+          },
+          {
+            "id": "c2",
+            "kind": "material_delay",
+            "target": "J106",
+            "start": 0,
+            "end": 750,
+            "quote": "The material for J106 will not arrive until 12:30."
+          }
+        ],
+        "questions": [],
+        "source": "nebius",
+        "receipt": {
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "requestId": "chatcmpl-bc9329585e665d36",
+          "inputTokens": 897,
+          "outputTokens": 137,
+          "latencyMs": 1549,
+          "timestamp": "2026-10-30T01:40:42.094Z"
+        }
+      },
+      "metrics": {
+        "onTime": 8,
+        "late": 0,
+        "tardiness": 0,
+        "moved": 4,
+        "machineChanges": 2,
+        "shift": 285,
+        "unscheduled": 0
+      },
+      "checks": [
+        {
+          "name": "Every job accounted for",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Machine compatibility & duration",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "No machine overlaps",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Downtime respected",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Material available",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Locked work unchanged",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Within the shift",
+          "passed": true,
+          "details": []
+        }
+      ]
+    },
+    {
+      "scenario": "Urgent order",
+      "httpStatus": 200,
+      "interpretation": {
+        "constraints": [
+          {
+            "id": "c1",
+            "kind": "machine_down",
+            "target": "CNC-1",
+            "start": 570,
+            "end": 780,
+            "quote": "CNC-1 is unavailable from 09:30 until 13:00."
+          },
+          {
+            "id": "c2",
+            "kind": "deadline",
+            "target": "J104",
+            "start": 0,
+            "end": 810,
+            "quote": "J104 now has a firm deadline of 13:30."
+          },
+          {
+            "id": "c3",
+            "kind": "material_delay",
+            "target": "J106",
+            "start": 0,
+            "end": 750,
+            "quote": "The material for J106 arrives at 12:30."
+          }
+        ],
+        "questions": [],
+        "source": "nebius",
+        "receipt": {
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "requestId": "chatcmpl-a5e1760c14768a8d",
+          "inputTokens": 893,
+          "outputTokens": 194,
+          "latencyMs": 1368,
+          "timestamp": "2026-10-30T01:40:43.605Z"
+        }
+      },
+      "metrics": {
+        "onTime": 7,
+        "late": 1,
+        "tardiness": 90,
+        "moved": 4,
+        "machineChanges": 2,
+        "shift": 285,
+        "unscheduled": 0
+      },
+      "checks": [
+        {
+          "name": "Every job accounted for",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Machine compatibility & duration",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "No machine overlaps",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Downtime respected",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Material available",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Locked work unchanged",
+          "passed": true,
+          "details": []
+        },
+        {
+          "name": "Within the shift",
+          "passed": true,
+          "details": []
+        }
+      ]
+    }
+  ]
+}

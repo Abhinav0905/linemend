@@ -10,7 +10,7 @@ Built for the **Nebius x NVIDIA Global AI Hackathon**, Best Apps and Agents trac
 
 ## Current status
 
-- [Open the public demo](https://linemend-workshop.abhinav-0905.chatgpt.site). Anonymous page access and a real hosted Nemotron extraction passed; the returned constraints produced a checked 8/8 recovery. See [public verification](artifacts/public-live-check.json).
+- [Open the public demo](https://linemend.linemend.workers.dev). Anonymous page access and a real hosted Nemotron extraction passed; the returned constraints produced a checked 8/8 recovery. See [Cloudflare verification](artifacts/cloudflare-live-check.json).
 - 22 automated tests pass, including 60 generated disruption cases.
 - Three fictional workshop examples work without credentials. They are marked **Example constraints - no model call**.
 - **Live Nebius inference passed five checks with NVIDIA Nemotron 3 Super:** exact extraction for three fictional examples and clarification for two ambiguous/unknown-target notes. [Request receipts and results](artifacts/live-nebius-results.json) are saved. A missing or rejected key produces an error; there is no fake model fallback.
@@ -44,14 +44,15 @@ NEBIUS_MODEL=nvidia/nemotron-3-super-120b-a12b
 
 The browser never receives the API key. Do not commit `.dev.vars`. The hosted application needs the same values in its server environment.
 
-Live requests also need the local D1 quota table. Build once, then apply the migration to the local preview database:
+For a local preview of the production Cloudflare build, create the D1 quota table once and start Wrangler:
 
 ```sh
-npm run build
-node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_model_budget.sql
+npm run build:cloudflare
+npx --yes wrangler@4.156.0 d1 migrations apply DB --local --config wrangler.cloudflare.jsonc --persist-to .wrangler/cloudflare-local
+npx --yes wrangler@4.156.0 dev --config dist/server/wrangler.json --local --persist-to .wrangler/cloudflare-local --port 5174
 ```
 
-Run the migration once per local database. Sites applies it to the hosted database during deployment. Only aggregate request counts are stored; workshop notes are not.
+Open `http://127.0.0.1:5174/`. Only aggregate request counts are stored; workshop notes are not. The [Cloudflare deployment guide](docs/cloudflare-deployment.md) covers the public deployment. Replace the account and database IDs with your own when deploying a fork.
 
 ## NVIDIA and Nebius integration
 
@@ -110,12 +111,12 @@ CSV exports contain order, route, start/finish, deadline and status. JSON report
 ```sh
 npm test
 npm run typecheck
-npm run build
+npm run build:cloudflare
 ```
 
 The 22 tests cover examples, impossible schedules, frozen-work conflicts, overlap and route rejection, import validation, quote/time evidence, model errors and 60 generated disruptions. The provider tests are mocked. Live smoke testing is a separate step with `node --env-file=.dev.vars --experimental-strip-types scripts/live-check.ts`.
 
-The app uses React, TypeScript and Vinext. The Sites build packages it as a Cloudflare Worker with a client bundle. A GitHub Actions workflow runs tests, type checking and build on push.
+The app uses React, TypeScript and Vinext. The public demo runs directly on Cloudflare Workers with D1. It does not depend on the earlier Sites host. See the [deployment guide](docs/cloudflare-deployment.md). GitHub Actions runs the tests, type checking and both build targets on push.
 
 ## Limits
 
@@ -124,3 +125,7 @@ This is a one-shift, single-operation prototype. Durations include fixed setup a
 Quote checks establish textual grounding, not correct interpretation of every sentence. Human review remains necessary. The API has bounded input size, per-visitor throttling and a shared D1 request budget of 100 calls per UTC day and 300 calls total. Each request reserves a slot atomically before contacting Nebius; failed provider calls count too. Deploys do not reset the total. Missing quota storage stops inference. This caps requests through this demo, not usage from other apps or direct use of the same API key.
 
 Live requests send the note and machine/job names to Nebius. The app does not persist inputs on its server. This prototype is not connected to a real production system.
+
+## AI assistance
+
+Codex assisted with research, implementation, testing and deployment. The user chose the event, directed the problem-to-result presentation, configured the accounts, selected the final host and is recording the demo. Runtime interpretation uses NVIDIA Nemotron on Nebius Token Factory.

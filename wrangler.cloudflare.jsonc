@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "linemend",
+  "account_id": "a3201d2ec9d52501a6322ebcbef6d85b",
+  "main": "./worker/cloudflare.ts",
+  "compatibility_date": "2026-10-29",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "NEBIUS_MODEL": "nvidia/nemotron-3-super-120b-a12b"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "linemend-budget",
+      "database_id": "d165317e-458b-4872-ba0f-6d3c88621fef",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "observability": { "enabled": false }
+}

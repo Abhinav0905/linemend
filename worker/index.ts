@@ -4,6 +4,14 @@ import type { ConnectorBinding } from "../lib/connector-contract.mjs";
 
 const worker = {
   fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext<{ CONNECTORS?: ConnectorBinding }>) {
+    const movedTo = (env as unknown as Record<string, string | undefined>).LINEMEND_MOVED_TO;
+    if (movedTo) {
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return Response.json({ error: `LineMend has moved. Open ${movedTo} to continue.` }, { status: 410 });
+      }
+      const url = new URL(request.url);
+      return Response.redirect(new URL(url.pathname + url.search, movedTo).href, 307);
+    }
     let binding = ctx.props?.CONNECTORS;
     // Local preview emulates the same request-scoped capability. This branch and
     // the auxiliary service binding are absent from production builds.

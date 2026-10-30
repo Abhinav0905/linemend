@@ -1,0 +1,71 @@
+{
+  "verifiedAt": "2026-10-30T01:32:17.887Z",
+  "host": "standalone Cloudflare local preview",
+  "httpStatus": 200,
+  "model": "nvidia/nemotron-3-super-120b-a12b",
+  "interpretStatus": 200,
+  "constraints": [
+    {
+      "id": "c1",
+      "kind": "machine_down",
+      "target": "CNC-1",
+      "start": 570,
+      "end": 780,
+      "quote": "CNC-1 is down from 09:30 until 13:00."
+    },
+    {
+      "id": "c2",
+      "kind": "material_delay",
+      "target": "J106",
+      "start": 0,
+      "end": 750,
+      "quote": "The material for J106 will not arrive until 12:30."
+    }
+  ],
+  "metrics": {
+    "onTime": 8,
+    "late": 0,
+    "tardiness": 0,
+    "moved": 4,
+    "machineChanges": 2,
+    "shift": 285,
+    "unscheduled": 0
+  },
+  "checks": [
+    {
+      "name": "Every job accounted for",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "Machine compatibility & duration",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "No machine overlaps",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "Downtime respected",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "Material available",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "Locked work unchanged",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "Within the shift",
+      "passed": true,
+      "details": []
+    }
+  ]
+}

@@ -19,6 +19,6 @@ Before recording, close unrelated tabs and notifications. Keep the window wide e
 
 This is a recording script. No video has been received or published yet.
 
-App: https://linemend-workshop.abhinav-0905.chatgpt.site
+App: https://linemend.linemend.workers.dev
 
 Source: https://github.com/Abhinav0905/linemend

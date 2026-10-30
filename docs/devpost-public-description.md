@@ -16,7 +16,7 @@ The model reads the note. The scheduler calculates the plan. The supervisor make
 
 The public app follows four sections: **the problem, our approach, working details and the result**.
 
-1. Open the [public demo](https://linemend-workshop.abhinav-0905.chatgpt.site) and read the fictional workshop handover.
+1. Open the [public demo](https://linemend.linemend.workers.dev) and read the fictional workshop handover.
 2. In the details section, keep Machine breakdown selected and click **Interpret with Nemotron**.
 3. Inspect the returned quotes and times, then click **Confirm & recover**.
 4. Compare **Recovery** with **Keep the old queue**, inspect the proposed moves and export the result.
@@ -31,7 +31,7 @@ These are reproducible software examples. We have not measured savings or accura
 
 ## What we built and verified
 
-React and TypeScript provide the interface. Nebius serves `nvidia/nemotron-3-super-120b-a12b` through its chat-completions API with strict JSON output. Only the note and machine/job names are sent for interpretation. The API key stays on the server.
+React and TypeScript provide the interface. The public app runs directly on Cloudflare Workers, with D1 for its shared request budget. Nebius serves `nvidia/nemotron-3-super-120b-a12b` through its chat-completions API with strict JSON output. Only the note and machine/job names are sent for interpretation. The API key stays on the server.
 
 All 22 automated tests pass, including 60 generated disruption cases. Type checking and production builds pass. Five final live checks passed: three exact fixture extractions and two clarification cases. Those calls took 0.78-3.88 seconds. Anonymous hosted inference also passed, and Safari checks covered the new walkthrough, live review and result comparison.
 
@@ -44,3 +44,7 @@ This prototype covers one shift and one operation per order, with fixed setup al
 The public demo has a shared limit of 100 model calls per UTC day and 300 total. Guided examples also work without a model call and are labelled clearly.
 
 The next product test is an anonymized real workshop schedule and handover. The demo video and final hackathon submission are still pending.
+
+## AI assistance
+
+Codex assisted with research, implementation, testing and deployment. The user chose the event, directed the problem-to-result presentation, configured the accounts, selected the final host and is recording the demo.

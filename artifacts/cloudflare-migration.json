@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-10-30T01:46:52.617743+00:00",
+  "url": "https://linemend.linemend.workers.dev",
+  "worker": "linemend",
+  "deploymentId": "73fbe987-52fa-4ca4-9c1a-0b9a17fbdf5a",
+  "versionId": "23db263c-6ced-4980-846c-a50aae6efb55",
+  "oldHost": {
+    "url": "https://linemend-workshop.abhinav-0905.chatgpt.site",
+    "getStatus": 307,
+    "postStatus": 410,
+    "nebiusSecretRemoved": true,
+    "finalCounts": {
+      "total": 2,
+      "day": "2026-10-30",
+      "daily": 2
+    }
+  },
+  "newHostCountsAfterCarryover": {
+    "total": 5,
+    "day": "2026-10-30",
+    "daily": 5
+  },
+  "note": "Three new-host verification calls plus two calls preserved from the retired host. No notes or account credentials were copied into this artifact."
+}

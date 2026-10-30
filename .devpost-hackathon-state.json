@@ -19,7 +19,7 @@
     "remote_status": "not_submitted",
     "remote_project_state": "published",
     "submitted_at": null,
-    "last_verified_at": "2026-10-29T16:29:37.603Z",
+    "last_verified_at": "2026-10-30T01:44:19.368714+00:00",
     "local_answers_file": ".devpost-local-answers.json",
     "confirmed_personal_field_ids": [
       28265,
@@ -27,7 +27,8 @@
       28283,
       29060,
       29061
-    ]
+    ],
+    "project_version": 5
   },
   "build": {
     "local_verified": true,
@@ -41,16 +42,16 @@
     "guided_flow_verified": true
   },
   "hosting": {
-    "project_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3",
-    "url": "https://linemend-workshop.abhinav-0905.chatgpt.site",
+    "provider": "Cloudflare Workers",
+    "worker": "linemend",
+    "url": "https://linemend.linemend.workers.dev",
     "audience": "public",
     "deployment_status": "succeeded",
-    "source_sha": "45403b172ecb5ddebc5d622bb0242273f40968ef",
-    "deployment_id": "appgdep_6ae3edefb22c81918a9749a010a5c721",
-    "version_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_f900e42cbe188191adea9275e7ca9c75",
-    "public_access_authorized": true,
-    "env_revision": 1,
-    "anonymous_live_verified": true
+    "deployment_id": "73fbe987-52fa-4ca4-9c1a-0b9a17fbdf5a",
+    "version_id": "23db263c-6ced-4980-846c-a50aae6efb55",
+    "database_id": "d165317e-458b-4872-ba0f-6d3c88621fef",
+    "anonymous_live_verified": true,
+    "evidence": "artifacts/cloudflare-live-check.json"
   },
   "repository": "https://github.com/Abhinav0905/linemend",
   "blockers": [
@@ -60,5 +61,21 @@
   "recording_owner": "user",
   "optional_followups": [
     "Hackathon credit request submitted; email code still pending"
-  ]
+  ],
+  "previous_hosting": {
+    "project_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3",
+    "url": "https://linemend-workshop.abhinav-0905.chatgpt.site",
+    "audience": "public",
+    "deployment_status": "succeeded",
+    "source_sha": "45403b172ecb5ddebc5d622bb0242273f40968ef",
+    "deployment_id": "appgdep_6ae3edefb22c81918a9749a010a5c721",
+    "version_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_f900e42cbe188191adea9275e7ca9c75",
+    "public_access_authorized": true,
+    "env_revision": 2,
+    "anonymous_live_verified": true,
+    "retirement_status": "redirect verified; inference disabled",
+    "redirect_deployment_id": "appgdep_6ae3f68237fc8191b0b2946c3272d7c0",
+    "redirect_version_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_994fc53673cc8191b754cdc2ad1858d7",
+    "redirect_source_sha": "285e56e0df1f21f3c5914aac58b86dfc38b06845"
+  }
 }

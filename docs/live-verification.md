@@ -21,3 +21,9 @@ Initial Nano calls produced an unsupported deadline or a job-specific lock from 
 An early Super run also failed local schema validation on the urgent-order note. The exact cause of that response was not retained. A diagnostic repeat passed. We then aligned the provider schema with local identifier, quote, question and time bounds, and requested short constraint IDs. The final five-case run passed after those changes.
 
 The unsupported-lock response is covered by a regression test. No invalid constraint was silently removed or accepted, and the adapter makes no automatic retry. This evidence supports the chosen demo setup; it does not establish a general model ranking or reliability rate.
+
+## Standalone Cloudflare migration
+
+On October 29 Pacific (October 30 UTC), the app moved to https://linemend.linemend.workers.dev. Anonymous HTTPS page and status requests passed. Live breakdown and urgent-order extractions matched their expected constraints and passed every scheduler check. Safari also completed a real breakdown extraction, reviewed its quotes and displayed the 8/8 recovery and 5/8 queue comparison. See `artifacts/cloudflare-live-check.json` and `artifacts/browser-qa.json`.
+
+The old host redirects page requests and rejects write requests with 410. Its Nebius secret was removed. Its two previous calls were carried into the new shared counter; `artifacts/cloudflare-migration.json` records the cutover.
