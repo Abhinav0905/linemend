@@ -1,0 +1,72 @@
+{
+  "verified_at": "2026-10-30T16:25:23.118204+00:00",
+  "app_url": "https://linemend.linemend.workers.dev",
+  "video_url": "https://www.youtube.com/watch?v=xEctEMZColA",
+  "video_visibility": "public",
+  "duration_seconds": 158,
+  "resolution": "1920x1080",
+  "codecs": [
+    "H.264",
+    "AAC"
+  ],
+  "sha256": "3709e0b54ff0b074b28174c8a3810312eb21e7343766ba9ab98b8ed85173dc28",
+  "capture": "Actual app interactions in an isolated Playwright browser; two live Nebius calls; no mocked responses",
+  "calls": [
+    {
+      "http_status": 200,
+      "source": "nebius",
+      "constraint_count": 2,
+      "receipt": {
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "requestId": "chatcmpl-bc0482823a2927b7",
+        "inputTokens": 897,
+        "outputTokens": 137,
+        "latencyMs": 1915,
+        "timestamp": "2026-10-30T16:17:38.794Z"
+      }
+    },
+    {
+      "http_status": 200,
+      "source": "nebius",
+      "constraint_count": 3,
+      "receipt": {
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "requestId": "chatcmpl-a275ce6f2a0819a8",
+        "inputTokens": 893,
+        "outputTokens": 194,
+        "latencyMs": 1606,
+        "timestamp": "2026-10-30T16:18:33.698Z"
+      }
+    }
+  ],
+  "browser_errors": [],
+  "export_verified": {
+    "schema_version": 1,
+    "checks_passed": true,
+    "manually_modified": true,
+    "bottlenecks": [
+      {
+        "jobId": "J104",
+        "earliestFinish": 900,
+        "due": 810,
+        "gap": 90,
+        "reason": "Its only compatible machine is unavailable too long."
+      }
+    ]
+  },
+  "final_tests_passed": 22,
+  "secret_scan": "No configured API key found in tracked files or client bundle; no credential-like assignments found in tracked files",
+  "youtube_checks": {
+    "copyright": "No issues found",
+    "community_guidelines": "No issues found"
+  },
+  "captions": "English captions uploaded and saved",
+  "public_oembed_verified": true,
+  "anonymous_playback_verified": {
+    "browser": "Safari Private Browsing",
+    "sign_in_required": false,
+    "observed_position_seconds": 70,
+    "observed_duration_seconds": 158,
+    "verified_at": "2026-10-30T16:30:07.488114+00:00"
+  }
+}

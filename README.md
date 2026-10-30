@@ -15,7 +15,8 @@ Built for the **Nebius x NVIDIA Global AI Hackathon**, Best Apps and Agents trac
 - Three fictional workshop examples work without credentials. They are marked **Example constraints - no model call**.
 - **Live Nebius inference passed five checks with NVIDIA Nemotron 3 Super:** exact extraction for three fictional examples and clarification for two ambiguous/unknown-target notes. [Request receipts and results](artifacts/live-nebius-results.json) are saved. A missing or rejected key produces an error; there is no fake model fallback.
 - Browser QA passed for all three examples, schedule comparisons, repair-time edits, valid/invalid imports and CSV/JSON exports. Desktop and narrow responsive layouts were inspected in Safari.
-- The [Devpost project page](https://devpost.com/software/linemend) is published. The hackathon entry is not submitted, and the public demo video is not complete.
+- [Watch the 2:38 demo](https://www.youtube.com/watch?v=xEctEMZColA): the problem, approach, two live Nemotron calls, calculated results and evidence export. English captions are included.
+- [Submitted to Devpost](https://devpost.com/software/linemend) on October 30, 2026 at 9:27 AM Pacific. The [submission receipt](artifacts/devpost-submission-receipt.json) and [video verification](artifacts/demo-verification.json) record the checks.
 
 ![Calculated example comparison, not an app screenshot](artifacts/linemend-comparison.png)
 
@@ -128,4 +129,4 @@ Live requests send the note and machine/job names to Nebius. The app does not pe
 
 ## AI assistance
 
-Codex assisted with research, implementation, testing and deployment. The user chose the event, directed the problem-to-result presentation, configured the accounts, selected the final host and is recording the demo. Runtime interpretation uses NVIDIA Nemotron on Nebius Token Factory.
+AI was used for implementation.

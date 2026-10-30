@@ -6,29 +6,34 @@
   },
   "deadline": "2026-10-30T17:00:00Z",
   "registered": true,
-  "rules_acknowledged": false,
-  "current_stage": "prepare-submission",
-  "next_command": "prepare-submission",
-  "completed_stages": [],
+  "rules_acknowledged": true,
+  "current_stage": "submit",
+  "next_command": null,
+  "completed_stages": [
+    "submit"
+  ],
   "submission": {
-    "status": "drafting",
+    "status": "Submitted",
     "draft_file": "devpost-submission.md",
     "project_slug": "linemend",
     "project_id": 1515854,
     "submission_id": 1270295,
-    "remote_status": "not_submitted",
+    "remote_status": "Submitted",
     "remote_project_state": "published",
-    "submitted_at": null,
-    "last_verified_at": "2026-10-30T01:44:19.368714+00:00",
+    "submitted_at": "2026-10-30T12:27:48.871-04:00",
+    "last_verified_at": "2026-10-30T16:29:24.308084+00:00",
     "local_answers_file": ".devpost-local-answers.json",
     "confirmed_personal_field_ids": [
       28265,
       28266,
       28283,
       29060,
-      29061
+      29061,
+      28284
     ],
-    "project_version": 5
+    "project_version": 6,
+    "video_url": "https://www.youtube.com/watch?v=xEctEMZColA",
+    "receipt": "artifacts/devpost-submission-receipt.json"
   },
   "build": {
     "local_verified": true,
@@ -54,11 +59,8 @@
     "evidence": "artifacts/cloudflare-live-check.json"
   },
   "repository": "https://github.com/Abhinav0905/linemend",
-  "blockers": [
-    "User is recording the demo; public YouTube URL pending",
-    "Final promotion-entity affiliation declaration and official rules agreement"
-  ],
-  "recording_owner": "user",
+  "blockers": [],
+  "recording_owner": "assistant",
   "optional_followups": [
     "Hackathon credit request submitted; email code still pending"
   ],
@@ -77,5 +79,14 @@
     "redirect_deployment_id": "appgdep_6ae3f68237fc8191b0b2946c3272d7c0",
     "redirect_version_id": "appgprj_6ae2fae3cb108191970e9c3f387ac6e3~appgver_994fc53673cc8191b754cdc2ad1858d7",
     "redirect_source_sha": "285e56e0df1f21f3c5914aac58b86dfc38b06845"
+  },
+  "rules_acknowledged_at": "2026-10-30T16:12:00Z",
+  "video": {
+    "url": "https://www.youtube.com/watch?v=xEctEMZColA",
+    "visibility": "public",
+    "duration_seconds": 158,
+    "captions": "English",
+    "verification": "YouTube Video published confirmation, public oEmbed and signed-out Safari playback to 1:10 of 2:38",
+    "local_file": "outputs/demo/LineMend-demo.mp4"
   }
 }

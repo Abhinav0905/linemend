@@ -43,8 +43,8 @@ This prototype covers one shift and one operation per order, with fixed setup al
 
 The public demo has a shared limit of 100 model calls per UTC day and 300 total. Guided examples also work without a model call and are labelled clearly.
 
-The next product test is an anonymized real workshop schedule and handover. The demo video and final hackathon submission are still pending.
+The next product test is an anonymized real workshop schedule and handover.
 
 ## AI assistance
 
-Codex assisted with research, implementation, testing and deployment. The user chose the event, directed the problem-to-result presentation, configured the accounts, selected the final host and is recording the demo.
+AI was used for implementation.

@@ -1,49 +1,54 @@
-# LineMend
+# LineMend submission story
 
-Tagline: A machine went down. Turn the handover into a checked recovery schedule and find out which orders can still finish today.
+Submitted October 30, 2026 at 9:27 AM Pacific. [Public entry](https://devpost.com/software/linemend) · [Demo video](https://www.youtube.com/watch?v=xEctEMZColA)
 
-Track: Best apps and agents
+## The problem
 
-Status: Public demo and live model checks verified. The video and final hackathon submission are pending.
+A small fabrication workshop can lose its daily plan in one handover. A mill breaks down, stock is late and an order still has a firm deadline. The supervisor needs to know which jobs can move and which promises can no longer be kept.
 
-## Inspiration
+LineMend makes that decision inspectable. It turns a handover note into a proposed recovery schedule, with the assumptions and missed deadlines in plain sight.
 
-A small fabrication workshop can start the morning with a sensible plan and lose it in one handover. A mill is down. Stock is late. One customer wants an earlier finish. The supervisor has to work out which jobs can move and which promises need a conversation.
+## How we solve it
 
-We wanted that conversation to start with a calculation the supervisor can inspect.
+NVIDIA Nemotron 3 Super runs on Nebius Token Factory and extracts downtime, material arrivals and deadlines from the note. Each constraint includes an exact source quote. The supervisor reviews the constraints before the scheduler uses them.
 
-## What it does
+A deterministic scheduling engine tries compatible machines and job sequences. It keeps completed work in place. An independent validator checks routes, overlaps, downtime, material availability, locked jobs and shift boundaries.
 
-LineMend reads a handover note, extracts source-linked constraints and proposes a revised daily schedule. The supervisor checks the assumptions first. The app then tries compatible machine routes and job orders, keeps completed work in place and compares the result with pushing the old queues back.
+The model reads the note. The scheduler calculates the plan. The supervisor makes the decision.
 
-Every late or unplaced job stays visible. When even an otherwise empty shop cannot meet a deadline, LineMend shows the earliest possible finish and the shortfall. A repair-time slider recalculates the schedule. CSV and JSON exports preserve the proposal and its evidence.
+## Work through the details
 
-The bundled breakdown example recovers eight on-time orders versus five under the old-queue comparison. A late-stock example leaves one order at least 150 minutes late; an urgent-order example leaves one at least 30 minutes late. All three are fictional, reproducible examples.
+The public app follows four sections: **the problem, our approach, working details and the result**.
 
-## How we built it
+1. Open the [public demo](https://linemend.linemend.workers.dev) and read the fictional workshop handover.
+2. In the details section, keep Machine breakdown selected and click **Interpret with Nemotron**.
+3. Inspect the returned quotes and times, then click **Confirm & recover**.
+4. Compare **Recovery** with **Keep the old queue**, inspect the proposed moves and export the result.
 
-React and TypeScript provide the browser board. The server adapter calls NVIDIA Nemotron 3 Super (120B-A12B) through Nebius Token Factory using strict structured output. Schema, known-entity, source-quote and time checks run before the result reaches the review screen.
+Try Urgent order to see a promise that cannot be kept. Change the repair estimate to explore its effect. The JSON report preserves the original interpretation, supervisor edits, schedule and checks; CSV gives the proposed job order.
 
-A separate deterministic engine searches job sequences and machine routes. Another validator checks allocations against the hard constraints. The language model does not invent job durations, certify machines or calculate the final schedule.
+## The result
 
-Five live provider checks passed: three exact fixture extractions and two clarification cases. Every successful call has a saved model ID, request ID, token counts and timing receipt.
+In the fictional breakdown example, the recovered plan finishes **8 of 8 orders on time**, compared with **5 of 8** under the old-queue policy. The late-stock example leaves one order at least 150 minutes late. The urgent-order example leaves J104 at least 30 minutes late: its only compatible machine returns at 13:00, the job takes an hour and its deadline is 13:30.
 
-## Challenges
+These are reproducible software examples. We have not measured savings or accuracy in a real workshop.
 
-A schedule can look convincing and still run work during downtime or before material arrives. We kept extraction, review, planning and validation separate. We also needed a comparison policy that could be explained precisely: keep the original machine queues and shift them forward without reordering or rerouting.
+## What we built and verified
 
-Live testing caught a plausible but unsupported job lock in Nano's output. The quote check rejected it. We reduced the input to entity names, clarified extraction rules, aligned the provider schema with local validation and selected Super after its five-case run passed. These are small synthetic checks, not a claim of general model superiority.
+React and TypeScript provide the interface. The public app runs directly on Cloudflare Workers, with D1 for its shared request budget. Nebius serves `nvidia/nemotron-3-super-120b-a12b` through its chat-completions API with strict JSON output. Only the note and machine/job names are sent for interpretation. The API key stays on the server.
 
-An impossible deadline is a useful output. We calculate a lower bound for each job instead of hiding it behind a successful-looking schedule.
+All 22 automated tests pass, including 60 generated disruption cases. Type checking and production builds pass. Five final live checks passed: three exact fixture extractions and two clarification cases. Those calls took 0.78-3.88 seconds. Anonymous hosted inference also passed, and Safari checks covered the new walkthrough, live review and result comparison.
 
-## What we verified
+Live testing caught an unsupported job lock in Nano's response. The source check rejected it. We tightened the prompt and schema, then selected Super after the five-case run passed. This is a small fixture evaluation, not a general model benchmark. Request receipts and the failure notes are in the [public MIT repository](https://github.com/Abhinav0905/linemend).
 
-Twenty-two automated tests pass, including sixty generated disruption cases. They cover physical constraints, locked-work conflicts, missing jobs, incompatible routes, invalid imports and fabricated model evidence. Type checking and the production build pass. Provider unit tests use mocked responses. A separate five-case live check passed with Nemotron Super; measured calls took 0.78-3.88 seconds. Browser checks passed for all three examples, comparison views, repair-time edits, valid and invalid imports, exports and responsive layouts. A shared database limits the hosted demo to 100 model requests per day and 300 total.
+## Limits and next steps
 
-## What's next
+This prototype covers one shift and one operation per order, with fixed setup allowances. Shared operators, multi-stage production, maintenance certification and machine dispatch are outside its scope. The bounded search makes no global optimality claim. Human review is required because a valid quote does not prove that every interpretation is correct.
 
-Test with an anonymized real workshop schedule and handover. Then add shared operators and multi-stage routes, which the prototype does not yet model.
+The public demo has a shared limit of 100 model calls per UTC day and 300 total. Guided examples also work without a model call and are labelled clearly.
 
-## Nebius feedback
+The next product test is an anonymized real workshop schedule and handover.
 
-The OpenAI-compatible endpoint and structured-output interface let us run Nemotron without managing a GPU server. The final five calls used 4,391 input tokens and 520 output tokens. Source grounding still needs application checks: valid JSON alone did not prevent an unsupported lock. A clearly surfaced per-key spending cap and an onboarding checklist for credit activation, billing and API keys would help short hackathon builds.
+## AI assistance
+
+AI was used for implementation.

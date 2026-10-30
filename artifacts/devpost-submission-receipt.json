@@ -1,0 +1,11 @@
+{
+  "submission_id": 1270295,
+  "status": "Submitted",
+  "hackathon_subdomain": "nebiusglobalaihackathon",
+  "project_slug": "linemend",
+  "submitted_at": "2026-10-30T12:27:48.871-04:00",
+  "url": "https://devpost.com/software/linemend",
+  "video_url": "https://www.youtube.com/watch?v=xEctEMZColA",
+  "verified_at": "2026-10-30T16:29:24.308084+00:00",
+  "verification": "submit_project returned Submitted; get_project independently returned the same submitted_at and video URL"
+}
