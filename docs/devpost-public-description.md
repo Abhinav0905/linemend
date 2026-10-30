@@ -1,3 +1,7 @@
+[Watch the 2-minute 38-second demo on YouTube](https://www.youtube.com/watch?v=xEctEMZColA). 1080p HD is available; if playback looks soft, select Settings > Quality > 1080p.
+
+Full-size screenshots: [the problem](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/754/825/datas/original.png), [the recovered schedule](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/754/827/datas/original.png), [checks and the missed deadline](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/754/829/datas/original.png).
+
 ## The problem
 
 A small fabrication workshop can lose its daily plan in one handover. A mill breaks down, stock is late and an order still has a firm deadline. The supervisor needs to know which jobs can move and which promises can no longer be kept.

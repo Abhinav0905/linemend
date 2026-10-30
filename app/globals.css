@@ -23,3 +23,51 @@
 @media(max-width:1150px){.story-hero{gap:32px;grid-template-columns:1.15fr .85fr}.story-copy h1{font-size:40px}.story-lead{font-size:14px}.problem-note{padding:20px}.problem-note blockquote{font-size:16px}.approach-grid{gap:18px}.approach-grid article{display:block}.approach-icon{margin-bottom:12px}.shift-context{display:none}.story-section-heading h2{font-size:20px}}
 @media(max-width:800px){.story-nav{gap:12px;margin-bottom:25px}.story-nav a{font-size:10px;gap:5px}.story-nav a svg{display:none}.story-hero{grid-template-columns:1fr;gap:25px;padding-bottom:30px}.story-copy h1{font-size:39px;letter-spacing:-1.4px}.story-lead{font-size:14px}.problem-note{transform:none;max-width:none}.problem-note blockquote{font-size:17px}.problem-facts{gap:40px}.story-approach{padding-top:24px}.story-section-heading{align-items:flex-start;flex-direction:column;gap:12px}.approach-grid{grid-template-columns:1fr;gap:20px}.approach-grid article{display:flex}.approach-icon{margin-bottom:0}.approach-grid p{font-size:12px}.approach-footnote{align-items:flex-start;line-height:1.8}.result-placeholder{flex-wrap:wrap;padding:22px}.result-placeholder>div{flex:1;min-width:200px}.result-placeholder>a{margin-left:47px}.recovery-heading .heading-actions .button.dark{display:none}.recovery-heading .heading-actions .button.secondary{display:flex}.recovery-heading .eyebrow{max-width:190px;line-height:1.7}.recovery-heading{gap:10px;display:flex}.results-section{margin-top:30px}.story-section-heading h2{font-size:21px}}
 @media(max-width:500px){.story-nav{grid-template-columns:1fr 1fr;gap:13px 25px}.story-nav a{font-size:11px}.story-copy h1{font-size:35px}.story-purpose{font-size:12px}.recovery-heading .heading-actions .button{font-size:10px;padding:8px}.recovery-heading .eyebrow{font-size:7px}.problem-facts{gap:30px}.result-placeholder>a{margin-left:0}.story-section-heading h2{font-size:20px}}
+
+/* Keep scheduling evidence readable in the app and shared screenshots. */
+:root{--muted:#415340}
+.overline,.eyebrow,.field-label,.stat-label,.story-nav a,.story-purpose,
+.story-section-heading>div>p:not(.overline),.approach-grid p,.approach-footnote,
+.problem-note>p,.problem-note>small,.problem-note-heading,.problem-facts>span,
+.panel-heading p,.schedule-title p,.plan-pill,.model-caption,.source-note.live,
+.constraint-time,.constraint-card blockquote,.inline-time,.quiet-note,
+.time-axis>span,.time-header>span,.machine-label span,.time-footer,
+.change-row>div span,.kept-note,.search-note,.small-heading>span,
+.whatif-heading p,.whatif-controls,.whatif-controls p,.receipt-line,
+.detail-explainer p,.detail-explainer ul,.shift-context,.summary-status small,
+.stat-value small,.shift-summary span:not(.summary-icon),.input-job-detail span,
+.empty-review p,.empty-review>span,.result-placeholder p,footer{color:#40583b}
+.story-copy h1 span{color:#4e6842}
+.problem-note blockquote{color:#213b2d}
+.problem-note-alert,.constraint-type{color:#934020}
+.constraint-type.material_delay{color:#70580c}
+.constraint-type.deadline{color:#664078}
+.job-block{color:#22372c;min-height:64px;max-height:76px;padding:8px}
+.job-block>span{font-size:12px}
+.job-block strong{font-size:12px;font-weight:600;margin:5px 0}
+.job-block small{font-size:11px;opacity:1}
+.job-block.is-locked{opacity:1;border-style:dashed}
+.change-job{color:#243b2d;font-size:12px}
+.time-axis>span,.time-header>span,.time-footer{font-size:11px}
+.machine-label strong{font-size:13px}
+.machine-label span{font-size:11px}
+.stat-label{font-size:12px}
+.stat-value{font-size:32px}
+.stat-value small{font-size:13px}
+.delta{font-size:11px;color:#285526;background:#e5f3df}
+.check-row{font-size:14px;color:#254d2b;padding-block:6px}
+.check-row>svg{color:#336c35}
+.change-row>div strong{font-size:14px;color:#263c2c}
+.change-row>div span{font-size:12px}
+.small-heading h3{font-size:15px}
+.kept-note,.search-note,.receipt-line{font-size:11px}
+.constraint-card>strong{font-size:15px}
+.constraint-card blockquote{font-size:12px;line-height:1.7;border-left-color:#708768}
+.constraint-time{font-size:13px}
+.source-note,.inline-time{font-size:11px}
+.bottleneck-panel{color:#674609;border-color:#bb8a31;background:#fff6df}
+.bottleneck-panel h3{font-size:17px;font-weight:700}
+.bottleneck-panel p{font-size:14px;max-width:1080px}
+.whatif-heading h3{font-size:16px}
+.whatif-heading p,.whatif-controls label{font-size:13px}
+.whatif-controls strong{color:#984022}

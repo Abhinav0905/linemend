@@ -1,0 +1,51 @@
+{
+  "verified_at": "2026-10-30T16:49:21Z",
+  "project_url": "https://devpost.com/software/linemend",
+  "submission_id": 1270295,
+  "status": "Submitted",
+  "original_submitted_at": "2026-10-30T12:27:48.871-04:00",
+  "app_url": "https://linemend.linemend.workers.dev",
+  "cloudflare_version": "f3b5c5fe-be6a-4386-a9c6-8de61d069a7f",
+  "video": {
+    "url": "https://www.youtube.com/watch?v=xEctEMZColA",
+    "export_resolution": "1920x1080",
+    "duration_seconds": 158,
+    "public_embedded_playback_verified_in": "Safari",
+    "quality_options_observed": [
+      "1080p",
+      "720p",
+      "480p",
+      "360p",
+      "240p"
+    ],
+    "automatic_quality_observed": "240p",
+    "direct_link_added": true,
+    "note": "The delivered video is 1920x1080. Original app recording was 1440x810 and was scaled for the export. YouTube Auto selected 240p in the checked browser; 1080p was available. Chrome's player was blank/crashing in this local browser session; Safari playback worked."
+  },
+  "screenshots": {
+    "resolution": "2400x1600",
+    "capture": "Actual published app in isolated Playwright, deviceScaleFactor 2. Two live Nebius calls. Verified deployed contrast styles before capture.",
+    "old_photo_ids_removed": [
+      5753220,
+      5753247,
+      5753341
+    ],
+    "new_photo_ids": [
+      5754825,
+      5754827,
+      5754829
+    ],
+    "public_gallery_verified": true,
+    "full_resolution_links_added": true
+  },
+  "verification": [
+    "Cloudflare production build passed",
+    "Contrast update deployed",
+    "Recovery returned 8 of 8 on time",
+    "Urgent scenario exposed 30-minute minimum lateness",
+    "All three replacement images inspected locally and in public Devpost gallery",
+    "Embedded YouTube player played on the public Devpost page",
+    "Devpost submit_project returned Submitted after gallery and video link updates",
+    "get_project confirmed published state, video URL and submitted_at after final description update"
+  ]
+}
